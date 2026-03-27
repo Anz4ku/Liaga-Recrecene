@@ -118,12 +118,15 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.2;
+  text-align: center;
   transition: color .18s;
   display: flex;
   align-items: center;
   gap: .35rem;
   letter-spacing: 0;
+  min-width: 80px;
 }
 .nav-btn:hover { color: rgba(17,17,16,.7); }
 .nav-btn.active {
@@ -309,6 +312,8 @@ body {
   line-height: 1.1;
   color: var(--ink);
   margin-bottom: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
 
 /* ── HEADING HIERARCHY ───────────────────────────────────────────── */
@@ -500,16 +505,20 @@ td em { font-style: italic; font-family: var(--serif); }
 .tf {
   display: flex;
   align-items: center;
-  gap: .8rem;
+  gap: 1rem;
   margin: .5rem 0;
   padding-left: .5rem;
   font-family: var(--serif);
   font-size: 1rem;
   flex-wrap: wrap;
 }
+.tf .tw {
+  display: flex;
+  flex-direction: column;
+}
 .tf em { font-style: italic; }
-.tf .tl { font-family: var(--sans); font-size: .75rem; color: var(--muted); }
-.tf .arr { color: var(--red); font-weight: 500; }
+.tf .tl { font-family: var(--sans); font-size: .7rem; color: var(--muted); margin-top: .05rem; }
+.tf .arr { color: var(--red); font-weight: 500; align-self: center; }
 
 /* ── QUOTES ─────────────────────────────────────────────────────── */
 .quotes { margin: .7rem 0; padding: .35rem 1.1rem; border-left: 1px solid var(--border); }
@@ -611,7 +620,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 <!-- ═══════════════════════════════════════════════════════════════
      PANEL 1 — ORTOGRAFÍA
 ═══════════════════════════════════════════════════════════════ -->
-<div class="panel" data-section="ortografia" data-label="Ortografía">
+<div class="panel" data-section="ortografia" data-label="Ortografía y Pronunciación">
 <div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
@@ -865,18 +874,18 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     <h3 class="sub-heading">Artículo definido</h3>
     <p>Se añade como <strong>sufijo</strong>. Concuerda en género y número. Solo existe en nominativo.</p>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>Género</th><th>Nº</th><th>Sufijo</th><th>Base</th><th>Con artículo</th></tr></thead>
+      <thead><tr><th>Género</th><th>Nº</th><th>Base</th><th>Sufijo</th><th>Con artículo</th></tr></thead>
       <tbody>
-        <tr><td>masc.</td><td>sg.</td><td class="end">-ot</td><td class="ex-cell"><em>mur</em><span class="m2">'muro'</span></td><td class="ex-cell"><em>murot</em><span class="m2">'el muro'</span></td></tr>
-        <tr><td>fem.</td><td>sg.</td><td class="end">-ta</td><td class="ex-cell"><em>natura</em><span class="m2">'naturaleza'</span></td><td class="ex-cell"><em>naturata</em><span class="m2">'la naturaleza'</span></td></tr>
-        <tr><td>neutro</td><td>sg.</td><td class="end">-to</td><td class="ex-cell"><em>amicho</em><span class="m2">'amigo'</span></td><td class="ex-cell"><em>amichoto</em><span class="m2">'el amigo'</span></td></tr>
-        <tr><td>todos</td><td>pl.</td><td class="end">-te</td><td class="ex-cell"><em>mury</em><span class="m2">'muros'</span></td><td class="ex-cell"><em>muryte</em><span class="m2">'los muros'</span></td></tr>
+        <tr><td>masc.</td><td>sg.</td><td class="ex-cell"><em>mur</em><span class="m2">'muro'</span></td><td class="end">-ot</td><td class="ex-cell"><em>murot</em><span class="m2">'el muro'</span></td></tr>
+        <tr><td>fem.</td><td>sg.</td><td class="ex-cell"><em>natura</em><span class="m2">'naturaleza'</span></td><td class="end">-ta</td><td class="ex-cell"><em>naturata</em><span class="m2">'la naturaleza'</span></td></tr>
+        <tr><td>neutro</td><td>sg.</td><td class="ex-cell"><em>amicho</em><span class="m2">'amigo'</span></td><td class="end">-to</td><td class="ex-cell"><em>amichoto</em><span class="m2">'el amigo'</span></td></tr>
+        <tr><td>todos</td><td>pl.</td><td class="ex-cell"><em>mury</em><span class="m2">'muros'</span></td><td class="end">-te</td><td class="ex-cell"><em>muryte</em><span class="m2">'los muros'</span></td></tr>
       </tbody>
     </table></div>
-    <p class="label">Geminación</p>
-    <div class="tf"><em>passa<strong>t</strong>o</em><span class="tl">'pasado'</span><span class="arr">→</span><em>passa<strong>tt</strong>o</em><span class="tl">'el pasado'</span></div>
+    <h4 class="subsub-heading">Geminación</h4>
+    <div class="tf"><span class="tw"><em>passa<strong>t</strong>o</em><span class="tl">'pasado'</span></span><span class="arr">→</span><span class="tw"><em>passa<strong>tt</strong>o</em><span class="tl">'el pasado'</span></span></div>
     <p class="label">Vocal epentética</p>
-    <div class="tf"><em>puarta</em><span class="tl">'puerta'</span><span class="arr">→</span><em>puar<strong>o</strong>tta</em><span class="tl">'la puerta'</span></div>
+    <div class="tf"><span class="tw"><em>puarta</em><span class="tl">'puerta'</span></span><span class="arr">→</span><span class="tw"><em>puar<strong>o</strong>tta</em><span class="tl">'la puerta'</span></span></div>
   </div>
 
   <div id="art-indef">
