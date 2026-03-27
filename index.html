@@ -242,7 +242,7 @@ body {
   scrollbar-color: var(--border) transparent;
   scroll-snap-align: start;
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 160px minmax(0, 1fr);
 }
 .panel::-webkit-scrollbar { width: 3px; }
 .panel::-webkit-scrollbar-thumb { background: var(--border); }
@@ -282,12 +282,11 @@ body {
   font-weight: 500;
 }
 
-/* content column — centered within its space */
+/* content column — fills all available space with proportional margins */
 .panel-inner {
-  padding: 3.5rem 4rem 6rem;
-  max-width: 760px;
+  padding: 3rem 3rem 6rem 2.5rem;
   width: 100%;
-  margin: 0 auto;
+  min-width: 0;
 }
 
 /* ── SECTION HEADER ─────────────────────────────────────────────── */
@@ -358,6 +357,7 @@ strong { font-weight: 500; }
   overflow-x: auto;
   margin: 1.1rem 0 .25rem;
   border: 1px solid var(--border);
+  max-width: 100%;
 }
 table {
   width: 100%;
