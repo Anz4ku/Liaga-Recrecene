@@ -178,12 +178,13 @@ body {
   left: 0;
   width: 180px;
   height: calc(100vh - var(--nav-h));
-  padding: 2.5rem 1.5rem 3rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: .1rem;
   z-index: 50;
-  pointer-events: none; /* panel underneath scrolls normally */
+  pointer-events: none;
   transition: opacity .2s;
 }
 #left-index.hidden { opacity: 0; }
@@ -200,8 +201,9 @@ body {
   line-height: 1.3;
   background: none;
   border: none;
-  text-align: left;
+  text-align: center;
   display: block;
+  width: 100%;
 }
 .idx-item:hover { color: rgba(17,17,16,.6); }
 .idx-item.active {
@@ -1114,9 +1116,14 @@ panelData.forEach(({ idx, label, subs }) => {
       const a = document.createElement('button');
       a.className = 'nav-drop-item';
       a.textContent = heading.textContent;
-      a.addEventListener('click', () => {
+    a.addEventListener('click', () => {
         scrollToPanel(idx);
-        setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 320);
+        // wait for panel to be in view, then scroll within it
+        setTimeout(() => {
+          const panel = panels[idx];
+          const top = sub.offsetTop - 20;
+          panel.scrollTo({ top, behavior: 'smooth' });
+        }, 350);
       });
       drop.appendChild(a);
     });
@@ -1141,38 +1148,53 @@ function scrollToPanel(idx) {
 }
 
 // ── BUILD LEFT INDEX ──────────────────────────────────────────────
-// rebuilt whenever panel changes
 function buildLeftIndex(panelIdx) {
   leftIdx.innerHTML = '';
   const { subs } = panelData[panelIdx];
-  if (subs.length <= 1) { leftIdx.classList.add('hidden'); return; }
+  const items = subs.filter(sub => !!sub.querySelector('h2,h3,h4'));
+  if (items.length <= 1) { leftIdx.classList.add('hidden'); return; }
   leftIdx.classList.remove('hidden');
 
-  subs.forEach(sub => {
+  items.forEach(sub => {
     const heading = sub.querySelector('h2,h3,h4');
-    if (!heading) return;
     const btn = document.createElement('button');
     btn.className = 'idx-item';
     btn.textContent = heading.textContent;
     btn.dataset.id = sub.id;
     btn.addEventListener('click', () => {
-      sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const panel = panelData[panelIdx].panel;
+      panel.scrollTo({ top: sub.offsetTop - 20, behavior: 'smooth' });
     });
     leftIdx.appendChild(btn);
   });
+
+  // activate first item immediately
+  leftIdx.querySelector('.idx-item')?.classList.add('active');
 }
 
 // ── SCROLL SPY (within panel) ─────────────────────────────────────
 function updateIndexSpy(panelIdx) {
   const { panel, subs } = panelData[panelIdx];
-  const panelScrollTop = panel.scrollTop;
-  let activeId = subs[0]?.id || '';
+  const items = subs.filter(sub => !!sub.querySelector('h2,h3,h4'));
+  if (!items.length) return;
 
-  subs.forEach(sub => {
-    // offsetTop relative to panel
-    const top = sub.offsetTop - 140;
-    if (panelScrollTop >= top) activeId = sub.id;
-  });
+  const scrollTop = panel.scrollTop;
+  const panelHeight = panel.clientHeight;
+  const scrollHeight = panel.scrollHeight;
+  const atBottom = scrollTop + panelHeight >= scrollHeight - 10;
+
+  let activeId = items[0].id; // default: first
+
+  if (atBottom) {
+    // at the very bottom → last item
+    activeId = items[items.length - 1].id;
+  } else {
+    items.forEach(sub => {
+      // offsetTop is relative to the panel's scrollable content
+      const top = sub.offsetTop - 160;
+      if (scrollTop >= top) activeId = sub.id;
+    });
+  }
 
   document.querySelectorAll('.idx-item').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.id === activeId);
