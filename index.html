@@ -145,7 +145,7 @@ body {
   transition: opacity .15s, transform .15s;
   z-index: 300;
 }
-.nav-item:hover .nav-dropdown {
+.nav-item.open .nav-dropdown {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
@@ -223,6 +223,7 @@ body {
   overflow-y: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 }
 #canvas::-webkit-scrollbar { display: none; }
 
@@ -237,16 +238,54 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
   scroll-snap-align: start;
+  display: flex;
 }
 .panel::-webkit-scrollbar { width: 3px; }
 .panel::-webkit-scrollbar-thumb { background: var(--border); }
 
-/* if we want narrower panels side by side — optional: set to 50vw etc */
+/* index column — lives inside the panel, travels with it */
+.panel-index {
+  flex: none;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  gap: .05rem;
+}
 
+.idx-item {
+  font-family: var(--serif);
+  font-size: .85rem;
+  font-style: italic;
+  color: rgba(17,17,16,.2);
+  padding: .2rem 0;
+  cursor: pointer;
+  transition: color .18s;
+  line-height: 1.35;
+  background: none;
+  border: none;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.idx-item:hover { color: rgba(17,17,16,.55); }
+.idx-item.active {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* content column */
 .panel-inner {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 3.5rem 3rem 6rem;
+  flex: 1;
+  min-width: 0;
+  max-width: 720px;
+  padding: 3.5rem 3rem 6rem 0;
 }
 
 /* ── SECTION HEADER ─────────────────────────────────────────────── */
@@ -482,9 +521,6 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   <button class="nav-arrow" id="nav-next" aria-label="Siguiente">&#8594;</button>
 </header>
 
-<!-- LEFT INDEX -->
-<div id="left-index"></div>
-
 <!-- ── HORIZONTAL CANVAS ────────────────────────────────────────── -->
 <div id="canvas">
 
@@ -492,6 +528,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 1 — ORTOGRAFÍA
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="ortografia" data-label="Ortografía">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 1</p>
@@ -646,6 +683,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 2 — SUSTANTIVOS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="sustantivos" data-label="Sustantivos">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 2</p>
@@ -743,6 +781,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 3 — ARTÍCULOS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="articulos" data-label="Artículos">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 3</p>
@@ -798,6 +837,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 4 — PRONOMBRES
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="pronombres" data-label="Pronombres">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 4</p>
@@ -863,6 +903,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 5 — ADJETIVOS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="adjetivos" data-label="Adjetivos">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 5</p>
@@ -906,6 +947,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 6 — VERBOS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="verbos" data-label="Verbos">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 6</p>
@@ -1000,6 +1042,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
      PANEL 7 — ADVERBIOS, CONJUNCIONES, DETERMINERS
 ═══════════════════════════════════════════════════════════════ -->
 <div class="panel" data-section="otros" data-label="Otras categorías">
+<div class="panel-index"><!-- built by JS --></div>
 <div class="panel-inner">
 
   <p class="section-eyebrow">§ 7–9</p>
@@ -1078,32 +1121,54 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 </div><!-- /canvas -->
 
 <script>
-// ── BUILD NAV ──────────────────────────────────────────────────────
 const panels  = [...document.querySelectorAll('.panel')];
 const navEl   = document.getElementById('nav-sections');
 const canvas  = document.getElementById('canvas');
-const leftIdx = document.getElementById('left-index');
 const navPrev = document.getElementById('nav-prev');
 const navNext = document.getElementById('nav-next');
 
-// collect all named anchors per panel
+// ── COLLECT PANEL DATA ────────────────────────────────────────────
 const panelData = panels.map((panel, i) => {
-  const subs = [...panel.querySelectorAll('[id]')];
-  return { panel, idx: i, label: panel.dataset.label, subs };
+  const inner = panel.querySelector('.panel-inner');
+  // anchors with a heading inside them
+  const subs = [...panel.querySelectorAll('[id]')]
+    .filter(el => el.querySelector('h2,h3,h4'));
+  return { panel, inner, idx: i, label: panel.dataset.label, subs };
 });
 
-// build top nav
-panelData.forEach(({ idx, label, subs }) => {
+// ── BUILD PANEL INDEXES ───────────────────────────────────────────
+panelData.forEach(({ panel, subs, idx }) => {
+  const indexEl = panel.querySelector('.panel-index');
+  if (!indexEl || subs.length <= 1) { if(indexEl) indexEl.style.display='none'; return; }
+
+  subs.forEach(sub => {
+    const heading = sub.querySelector('h2,h3,h4');
+    const btn = document.createElement('button');
+    btn.className = 'idx-item';
+    btn.textContent = heading.textContent;
+    btn.dataset.id = sub.id;
+    btn.addEventListener('click', () => {
+      // scroll within the panel vertically
+      panel.scrollTo({ top: sub.offsetTop - 24, behavior: 'smooth' });
+    });
+    indexEl.appendChild(btn);
+  });
+
+  // first item active by default
+  indexEl.querySelector('.idx-item')?.classList.add('active');
+});
+
+// ── BUILD TOP NAV ─────────────────────────────────────────────────
+panelData.forEach(({ idx, label, subs, panel }) => {
   const item = document.createElement('div');
   item.className = 'nav-item';
 
+  const chevron = subs.length > 1
+    ? ` <svg width="7" height="7" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>`
+    : '';
   const btn = document.createElement('button');
   btn.className = 'nav-btn';
-  btn.dataset.idx = idx;
-  // chevron only if has subs
-  btn.innerHTML = label + (subs.length > 1
-    ? ` <svg width="7" height="7" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>`
-    : '');
+  btn.innerHTML = label + chevron;
   btn.addEventListener('click', () => scrollToPanel(idx));
   item.appendChild(btn);
 
@@ -1112,119 +1177,85 @@ panelData.forEach(({ idx, label, subs }) => {
     drop.className = 'nav-dropdown';
     subs.forEach(sub => {
       const heading = sub.querySelector('h2,h3,h4');
-      if (!heading) return;
       const a = document.createElement('button');
       a.className = 'nav-drop-item';
       a.textContent = heading.textContent;
-    a.addEventListener('click', () => {
+      a.addEventListener('click', () => {
         scrollToPanel(idx);
-        // wait for panel to be in view, then scroll within it
         setTimeout(() => {
-          const panel = panels[idx];
-          const top = sub.offsetTop - 20;
-          panel.scrollTo({ top, behavior: 'smooth' });
-        }, 350);
+          panel.scrollTo({ top: sub.offsetTop - 24, behavior: 'smooth' });
+        }, 380);
+        item.classList.remove('open');
       });
       drop.appendChild(a);
     });
     item.appendChild(drop);
+
+    // JS hover — reliable across all browsers
+    let closeTimer;
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimer);
+      item.classList.add('open');
+    });
+    item.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => item.classList.remove('open'), 120);
+    });
   }
+
   navEl.appendChild(item);
 });
 
 const navBtns = [...document.querySelectorAll('.nav-btn')];
 
 // ── NAV ARROWS ────────────────────────────────────────────────────
-navPrev.addEventListener('click', () => {
-  navEl.scrollBy({ left: -200, behavior: 'smooth' });
-});
-navNext.addEventListener('click', () => {
-  navEl.scrollBy({ left: 200, behavior: 'smooth' });
-});
+navPrev.addEventListener('click', () => navEl.scrollBy({ left: -200, behavior: 'smooth' }));
+navNext.addEventListener('click', () => navEl.scrollBy({ left: 200, behavior: 'smooth' }));
 
-// ── SCROLL TO PANEL ────────────────────────────────────────────────
+// ── SCROLL TO PANEL ───────────────────────────────────────────────
 function scrollToPanel(idx) {
   canvas.scrollTo({ left: idx * window.innerWidth, behavior: 'smooth' });
 }
 
-// ── BUILD LEFT INDEX ──────────────────────────────────────────────
-function buildLeftIndex(panelIdx) {
-  leftIdx.innerHTML = '';
-  const { subs } = panelData[panelIdx];
-  const items = subs.filter(sub => !!sub.querySelector('h2,h3,h4'));
-  if (items.length <= 1) { leftIdx.classList.add('hidden'); return; }
-  leftIdx.classList.remove('hidden');
-
-  items.forEach(sub => {
-    const heading = sub.querySelector('h2,h3,h4');
-    const btn = document.createElement('button');
-    btn.className = 'idx-item';
-    btn.textContent = heading.textContent;
-    btn.dataset.id = sub.id;
-    btn.addEventListener('click', () => {
-      const panel = panelData[panelIdx].panel;
-      panel.scrollTo({ top: sub.offsetTop - 20, behavior: 'smooth' });
-    });
-    leftIdx.appendChild(btn);
-  });
-
-  // activate first item immediately
-  leftIdx.querySelector('.idx-item')?.classList.add('active');
-}
-
-// ── SCROLL SPY (within panel) ─────────────────────────────────────
-function updateIndexSpy(panelIdx) {
+// ── SCROLL SPY ────────────────────────────────────────────────────
+function updateSpy(panelIdx) {
   const { panel, subs } = panelData[panelIdx];
-  const items = subs.filter(sub => !!sub.querySelector('h2,h3,h4'));
-  if (!items.length) return;
+  if (!subs.length) return;
 
-  const scrollTop = panel.scrollTop;
-  const panelHeight = panel.clientHeight;
-  const scrollHeight = panel.scrollHeight;
-  const atBottom = scrollTop + panelHeight >= scrollHeight - 10;
-
-  let activeId = items[0].id; // default: first
+  const scrollTop  = panel.scrollTop;
+  const atBottom   = scrollTop + panel.clientHeight >= panel.scrollHeight - 8;
+  let activeId     = subs[0].id;
 
   if (atBottom) {
-    // at the very bottom → last item
-    activeId = items[items.length - 1].id;
+    activeId = subs[subs.length - 1].id;
   } else {
-    items.forEach(sub => {
-      // offsetTop is relative to the panel's scrollable content
-      const top = sub.offsetTop - 160;
-      if (scrollTop >= top) activeId = sub.id;
+    subs.forEach(sub => {
+      if (scrollTop >= sub.offsetTop - 160) activeId = sub.id;
     });
   }
 
-  document.querySelectorAll('.idx-item').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.id === activeId);
+  panel.querySelectorAll('.idx-item').forEach(b => {
+    b.classList.toggle('active', b.dataset.id === activeId);
   });
 }
 
-// ── CANVAS HORIZONTAL SCROLL ──────────────────────────────────────
-let currentPanel = 0;
-
+// ── HORIZONTAL SCROLL ─────────────────────────────────────────────
+let cur = 0;
 canvas.addEventListener('scroll', () => {
   const idx = Math.round(canvas.scrollLeft / window.innerWidth);
-  if (idx !== currentPanel) {
-    currentPanel = idx;
+  if (idx !== cur) {
+    cur = idx;
     navBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
-    buildLeftIndex(idx);
   }
-  updateIndexSpy(idx);
+  updateSpy(idx);
 }, { passive: true });
 
-// each panel's vertical scroll also updates spy
 panels.forEach((panel, i) => {
-  panel.addEventListener('scroll', () => {
-    if (i === currentPanel) updateIndexSpy(i);
-  }, { passive: true });
+  panel.addEventListener('scroll', () => { if (i === cur) updateSpy(i); }, { passive: true });
 });
 
 // init
 navBtns[0]?.classList.add('active');
-buildLeftIndex(0);
-updateIndexSpy(0);
+updateSpy(0);
 
 // ── ALPHABET ──────────────────────────────────────────────────────
 const ALPHA = [
@@ -1257,29 +1288,18 @@ const ALPHA = [
 const isvg = `<svg viewBox="0 0 16 16"><path d="M3 5v6h4l5 5V0L7 5H3z"/></svg>`;
 const tbody = document.getElementById('atb');
 ALPHA.forEach(([g,afi,nom,ni,ex,xi,tr,au]) => {
-  const btn = au
-    ? `<button class="abtn" onclick="playSound('${au}')" title="Audio">${isvg}</button>`
-    : `<span style="color:#ccc">—</span>`;
+  const btnH = au ? `<button class="abtn" onclick="playSound('${au}')">${isvg}</button>` : `<span style="color:#ccc">—</span>`;
   const row = document.createElement('tr');
-  row.innerHTML = `
-    <td style="font-family:var(--sans);font-weight:500">${g}</td>
-    <td class="ipa">${afi}</td>
-    <td><em>${nom}</em></td>
-    <td class="ipa" style="color:var(--muted);font-size:.8rem">${ni}</td>
-    <td><em>${ex}</em></td>
-    <td class="ipa" style="color:var(--muted);font-size:.8rem">${xi}</td>
-    <td>${tr}</td>
-    <td>${btn}</td>`;
+  row.innerHTML = `<td style="font-family:var(--sans);font-weight:500">${g}</td><td class="ipa">${afi}</td><td><em>${nom}</em></td><td class="ipa" style="color:var(--muted);font-size:.8rem">${ni}</td><td><em>${ex}</em></td><td class="ipa" style="color:var(--muted);font-size:.8rem">${xi}</td><td>${tr}</td><td>${btnH}</td>`;
   tbody.appendChild(row);
 });
-
 function playSound(k) { new Audio(`audio/${k}.mp3`).play().catch(()=>{}); }
 
-// ── KEYBOARD NAV ──────────────────────────────────────────────────
+// ── KEYBOARD ──────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
-  const cur = Math.round(canvas.scrollLeft / window.innerWidth);
-  if (e.key === 'ArrowRight' && cur < panels.length - 1) scrollToPanel(cur + 1);
-  if (e.key === 'ArrowLeft'  && cur > 0)                 scrollToPanel(cur - 1);
+  const c = Math.round(canvas.scrollLeft / window.innerWidth);
+  if (e.key === 'ArrowRight' && c < panels.length - 1) scrollToPanel(c + 1);
+  if (e.key === 'ArrowLeft'  && c > 0)                 scrollToPanel(c - 1);
 });
 </script>
 </body>
