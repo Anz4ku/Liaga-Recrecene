@@ -400,7 +400,41 @@ tbody td {
 }
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--off); }
-td.m { background: var(--off); color: var(--muted); font-size: .78rem; }
+td.end {
+  font-size: .8rem;
+  color: var(--red);
+  font-weight: 500;
+  background: rgba(192,57,43,.04);
+}
+td.end-lbl {
+  font-size: .62rem;
+  color: var(--muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  white-space: nowrap;
+}
+td.ex-cell {
+  font-size: .88rem;
+  line-height: 1.3;
+  padding: .5rem .9rem;
+}
+td.ex-cell em { font-style: italic; font-family: var(--serif); }
+.m2 {
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: .68rem;
+  color: var(--muted);
+  display: block;
+}
+td.ex-g {
+  font-size: .68rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  white-space: nowrap;
+}
+tr.end-row td { border-bottom: none; }
+tr.end-row + tr td { border-top: none; }
 td em { font-style: italic; font-family: var(--serif); }
 .cc { text-align: center; font-style: italic; }
 .tbl-cap {
@@ -743,23 +777,46 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     <h3 class="sub-heading">Nominativo</h3>
     <div class="tbl-wrap"><table>
       <thead>
-        <tr><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
-        <tr class="sh"><th></th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr class="sh"><th></th><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Dura</strong></td><td>-cons.</td><td>-y</td><td>-a</td><td>-y</td><td>-o</td><td>-a</td></tr>
-        <tr><td><strong>Blanda</strong></td><td>-i</td><td>-ī</td><td>-i</td><td>-ī</td><td>-e</td><td>-ia</td></tr>
-      </tbody>
-    </table></div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th></th><th>Pl.</th><th></th></tr></thead>
-      <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td><em>mur</em></td><td class="m">'muro'</td><td><em>mury</em></td><td class="m">'muros'</td></tr>
-        <tr><td>fem.</td><td><em>natura</em></td><td class="m">'naturaleza'</td><td><em>natury</em></td><td class="m">'naturalezas'</td></tr>
-        <tr><td>neutro</td><td><em>amicho</em></td><td class="m">'amigo'</td><td><em>amicha</em></td><td class="m">'amigos'</td></tr>
-        <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td><em>ochi</em></td><td class="m">'ojo'</td><td><em>ochī</em></td><td class="m">'ojos'</td></tr>
-        <tr><td>fem.</td><td><em>flori</em></td><td class="m">'flor'</td><td><em>florī</em></td><td class="m">'flores'</td></tr>
-        <tr><td>neutro</td><td><em>struene</em></td><td class="m">'construcción'</td><td><em>struenia</em></td><td class="m">'construcciones'</td></tr>
+        <!-- DURA endings -->
+        <tr class="end-row">
+          <td rowspan="2"><strong>Dura</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-cons.</td><td class="end">-y</td>
+          <td class="end">-a</td><td class="end">-y</td>
+          <td class="end">-o</td><td class="end">-a</td>
+        </tr>
+        <!-- DURA examples -->
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>mur</em><br><span class="m2">'muro'</span></td>
+          <td class="ex-cell"><em>mury</em><br><span class="m2">'muros'</span></td>
+          <td class="ex-cell"><em>natura</em><br><span class="m2">'naturaleza'</span></td>
+          <td class="ex-cell"><em>natury</em><br><span class="m2">'naturalezas'</span></td>
+          <td class="ex-cell"><em>amicho</em><br><span class="m2">'amigo'</span></td>
+          <td class="ex-cell"><em>amicha</em><br><span class="m2">'amigos'</span></td>
+        </tr>
+        <!-- BLANDA endings -->
+        <tr class="end-row">
+          <td rowspan="2"><strong>Blanda</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-i</td><td class="end">-ī</td>
+          <td class="end">-i</td><td class="end">-ī</td>
+          <td class="end">-e</td><td class="end">-ia</td>
+        </tr>
+        <!-- BLANDA examples -->
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>ochi</em><br><span class="m2">'ojo'</span></td>
+          <td class="ex-cell"><em>ochī</em><br><span class="m2">'ojos'</span></td>
+          <td class="ex-cell"><em>flori</em><br><span class="m2">'flor'</span></td>
+          <td class="ex-cell"><em>florī</em><br><span class="m2">'flores'</span></td>
+          <td class="ex-cell"><em>struene</em><br><span class="m2">'construcción'</span></td>
+          <td class="ex-cell"><em>struenia</em><br><span class="m2">'construcciones'</span></td>
+        </tr>
       </tbody>
     </table></div>
   </div>
@@ -768,23 +825,42 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     <h3 class="sub-heading">Genitivo</h3>
     <div class="tbl-wrap"><table>
       <thead>
-        <tr><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
-        <tr class="sh"><th></th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr class="sh"><th></th><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Dura</strong></td><td>-y</td><td>-ur</td><td>-y</td><td>-ar</td><td>-y</td><td>-or</td></tr>
-        <tr><td><strong>Blanda</strong></td><td>-ī</td><td>-er</td><td>-ī</td><td>-er</td><td>-ī</td><td>-er</td></tr>
-      </tbody>
-    </table></div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th></th><th>Pl.</th><th></th></tr></thead>
-      <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td><em>mury</em></td><td class="m">'del muro'</td><td><em>murur</em></td><td class="m">'de los muros'</td></tr>
-        <tr><td>fem.</td><td><em>natury</em></td><td class="m">'de la naturaleza'</td><td><em>naturar</em></td><td class="m">'de las naturalezas'</td></tr>
-        <tr><td>neutro</td><td><em>amichy</em></td><td class="m">'del amigo'</td><td><em>amichor</em></td><td class="m">'de los amigos'</td></tr>
-        <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td><em>ochī</em></td><td class="m">'del ojo'</td><td><em>ocher</em></td><td class="m">'de los ojos'</td></tr>
-        <tr><td>fem.</td><td><em>florī</em></td><td class="m">'de la flor'</td><td><em>florer</em></td><td class="m">'de las flores'</td></tr>
-        <tr><td>neutro</td><td><em>struenī</em></td><td class="m">'de la construcción'</td><td><em>struener</em></td><td class="m">'de las construcciones'</td></tr>
+        <tr class="end-row">
+          <td rowspan="2"><strong>Dura</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-y</td><td class="end">-ur</td>
+          <td class="end">-y</td><td class="end">-ar</td>
+          <td class="end">-y</td><td class="end">-or</td>
+        </tr>
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>mury</em><br><span class="m2">'del muro'</span></td>
+          <td class="ex-cell"><em>murur</em><br><span class="m2">'de los muros'</span></td>
+          <td class="ex-cell"><em>natury</em><br><span class="m2">'de la naturaleza'</span></td>
+          <td class="ex-cell"><em>naturar</em><br><span class="m2">'de las naturalezas'</span></td>
+          <td class="ex-cell"><em>amichy</em><br><span class="m2">'del amigo'</span></td>
+          <td class="ex-cell"><em>amichor</em><br><span class="m2">'de los amigos'</span></td>
+        </tr>
+        <tr class="end-row">
+          <td rowspan="2"><strong>Blanda</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-ī</td><td class="end">-er</td>
+          <td class="end">-ī</td><td class="end">-er</td>
+          <td class="end">-ī</td><td class="end">-er</td>
+        </tr>
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>ochī</em><br><span class="m2">'del ojo'</span></td>
+          <td class="ex-cell"><em>ocher</em><br><span class="m2">'de los ojos'</span></td>
+          <td class="ex-cell"><em>florī</em><br><span class="m2">'de la flor'</span></td>
+          <td class="ex-cell"><em>florer</em><br><span class="m2">'de las flores'</span></td>
+          <td class="ex-cell"><em>struenī</em><br><span class="m2">'de la construcción'</span></td>
+          <td class="ex-cell"><em>struener</em><br><span class="m2">'de las construcciones'</span></td>
+        </tr>
       </tbody>
     </table></div>
   </div>
@@ -793,23 +869,42 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     <h3 class="sub-heading">Dativo</h3>
     <div class="tbl-wrap"><table>
       <thead>
-        <tr><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
-        <tr class="sh"><th></th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th><th>Sg.</th><th>Pl.</th></tr>
+        <tr class="sh"><th></th><th></th><th colspan="2">Masculino</th><th colspan="2">Femenino</th><th colspan="2">Neutro</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Dura</strong></td><td>-u</td><td>-is</td><td>-ē</td><td>-is</td><td>-u</td><td>-is</td></tr>
-        <tr><td><strong>Blanda</strong></td><td>-iu</td><td>-im</td><td>-e</td><td>-im</td><td>-iu</td><td>-im</td></tr>
-      </tbody>
-    </table></div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th></th><th>Pl.</th><th></th></tr></thead>
-      <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td><em>muru</em></td><td class="m">'al muro'</td><td><em>muris</em></td><td class="m">'a los muros'</td></tr>
-        <tr><td>fem.</td><td><em>naturē</em></td><td class="m">'a la naturaleza'</td><td><em>naturis</em></td><td class="m">'a las naturalezas'</td></tr>
-        <tr><td>neutro</td><td><em>amichu</em></td><td class="m">'al amigo'</td><td><em>amichis</em></td><td class="m">'a los amigos'</td></tr>
-        <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td><em>ochiu</em></td><td class="m">'al ojo'</td><td><em>ochim</em></td><td class="m">'a los ojos'</td></tr>
-        <tr><td>fem.</td><td><em>flore</em></td><td class="m">'a la flor'</td><td><em>florim</em></td><td class="m">'a las flores'</td></tr>
-        <tr><td>neutro</td><td><em>strueniu</em></td><td class="m">'a la construcción'</td><td><em>struenim</em></td><td class="m">'a las construcciones'</td></tr>
+        <tr class="end-row">
+          <td rowspan="2"><strong>Dura</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-u</td><td class="end">-is</td>
+          <td class="end">-ē</td><td class="end">-is</td>
+          <td class="end">-u</td><td class="end">-is</td>
+        </tr>
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>muru</em><br><span class="m2">'al muro'</span></td>
+          <td class="ex-cell"><em>muris</em><br><span class="m2">'a los muros'</span></td>
+          <td class="ex-cell"><em>naturē</em><br><span class="m2">'a la naturaleza'</span></td>
+          <td class="ex-cell"><em>naturis</em><br><span class="m2">'a las naturalezas'</span></td>
+          <td class="ex-cell"><em>amichu</em><br><span class="m2">'al amigo'</span></td>
+          <td class="ex-cell"><em>amichis</em><br><span class="m2">'a los amigos'</span></td>
+        </tr>
+        <tr class="end-row">
+          <td rowspan="2"><strong>Blanda</strong></td>
+          <td class="end-lbl">terminación</td>
+          <td class="end">-iu</td><td class="end">-im</td>
+          <td class="end">-e</td><td class="end">-im</td>
+          <td class="end">-iu</td><td class="end">-im</td>
+        </tr>
+        <tr>
+          <td class="ex-g">masc. / fem. / neutro</td>
+          <td class="ex-cell"><em>ochiu</em><br><span class="m2">'al ojo'</span></td>
+          <td class="ex-cell"><em>ochim</em><br><span class="m2">'a los ojos'</span></td>
+          <td class="ex-cell"><em>flore</em><br><span class="m2">'a la flor'</span></td>
+          <td class="ex-cell"><em>florim</em><br><span class="m2">'a las flores'</span></td>
+          <td class="ex-cell"><em>strueniu</em><br><span class="m2">'a la construcción'</span></td>
+          <td class="ex-cell"><em>struenim</em><br><span class="m2">'a las construcciones'</span></td>
+        </tr>
       </tbody>
     </table></div>
   </div>
