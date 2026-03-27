@@ -322,13 +322,13 @@ body {
   scroll-margin-top: 2rem;
 }
 
-/* h4 — subsection: red, indented */
+/* h4 — subsection: black, indented */
 .subsub-heading {
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 500;
   font-style: italic;
-  color: var(--red);
+  color: var(--ink);
   margin: 2rem 0 .4rem;
   padding-left: 1.1rem;
   border-left: 2px solid rgba(192,57,43,.25);
@@ -430,36 +430,33 @@ td em { font-style: italic; font-family: var(--serif); }
 }
 .ex-row {
   display: flex;
-  gap: 2.5rem;
-  align-items: center;
-  padding: .18rem 0;
+  flex-direction: column;
+  padding: .22rem 0;
   width: 100%;
   max-width: 32rem;
 }
-/* word + translation stacked in one cell */
-.ex-w {
+.ex-top {
   display: flex;
-  flex-direction: column;
-  min-width: 8rem;
+  align-items: baseline;
+  gap: 1rem;
 }
 .ex-word {
   font-family: var(--serif);
   font-style: italic;
   font-size: 1rem;
   color: var(--ink);
-  line-height: 1.3;
-}
-.ex-tr {
-  font-family: var(--sans);
-  font-size: .68rem;
-  color: var(--muted);
-  margin-top: .08rem;
 }
 .ex-i {
   font-family: var(--ipa);
   font-size: .88rem;
   color: #666360;
-  min-width: 8rem;
+}
+.ex-tr {
+  font-family: var(--sans);
+  font-size: .7rem;
+  color: var(--muted);
+  margin-top: .05rem;
+  padding-left: .1rem;
 }
 
 /* ── TRANSFORM ──────────────────────────────────────────────────── */
@@ -618,8 +615,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
       <h4 class="subsub-heading">La vocal I</h4>
       <p>La vocal <em>i</em> siempre palataliza la consonante precedente.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">vita</span><span class="ex-tr">'vida'</span></div><span class="ex-i">[vʲi.ta]</span></div>
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">miasi</span><span class="ex-tr">'mes' (final muda)</span></div><span class="ex-i">[mʲasʲ]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">vita</span><span class="ex-i">[vʲi.ta]</span></div><span class="ex-tr">'vida'</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">miasi</span><span class="ex-i">[mʲasʲ]</span></div><span class="ex-tr">'mes'</span></div>
       </div>
     </div>
 
@@ -627,8 +624,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
       <h4 class="subsub-heading">La vocal E</h4>
       <p>Palataliza la consonante precedente y siempre se pronuncia plena.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">vide</span><span class="ex-tr">'ver'</span></div><span class="ex-i">[ˈvʲi.dʲe]</span></div>
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">cella</span><span class="ex-tr">'celda'</span></div><span class="ex-i">[ˈt͡ɕelːa]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">vide</span><span class="ex-i">[ˈvʲi.dʲe]</span></div><span class="ex-tr">'ver'</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">cella</span><span class="ex-i">[ˈt͡ɕelːa]</span></div><span class="ex-tr">'celda'</span></div>
       </div>
     </div>
 
@@ -636,7 +633,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
       <h4 class="subsub-heading">La vocal U</h4>
       <p>Átona y adyacente a vocal, funciona como semiconsonante <span class="ipa">[w]</span>.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">dua</span><span class="ex-tr">'dos'</span></div><span class="ex-i">[dʷa]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">dua</span><span class="ex-i">[dʷa]</span></div><span class="ex-tr">'dos'</span></div>
       </div>
     </div>
 
@@ -645,20 +642,20 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
       <p class="label">La Ī</p>
       <p>El macrón indica que <em>i</em> mantiene valor vocálico pleno en lugar de convertirse en <span class="ipa">[j]</span>.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">ioc</span><span class="ex-tr">'juego'</span></div><span class="ex-i">[jok]</span></div>
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">vīa</span><span class="ex-tr">'vía'</span></div><span class="ex-i">[ˈvʲi.a]</span></div>
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">veriostī</span><span class="ex-tr">'verdades'</span></div><span class="ex-i">[ˈvʲe.rʲo.stʲi]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">ioc</span><span class="ex-i">[jok]</span></div><span class="ex-tr">'juego'</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">vīa</span><span class="ex-i">[ˈvʲi.a]</span></div><span class="ex-tr">'vía'</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">veriostī</span><span class="ex-i">[ˈvʲe.rʲo.stʲi]</span></div><span class="ex-tr">'verdades'</span></div>
       </div>
       <p class="label">La Ē</p>
       <p>Después de <em>c</em> indica pronunciación <span class="ipa">[t͡s]</span>.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">cēlo</span><span class="ex-tr">'cielo'</span></div><span class="ex-i">[ˈt͡sɛ.lo]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">cēlo</span><span class="ex-i">[ˈt͡sɛ.lo]</span></div><span class="ex-tr">'cielo'</span></div>
       </div>
       <p class="label">La Ĭ</p>
       <p>El breve indica que <em>i</em> no se pronuncia entre consonantes.</p>
       <div class="exs">
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">florĭta</span><span class="ex-tr">'la flor'</span></div><span class="ex-i">[ˈflorʲ.ta]</span></div>
-        <div class="ex-row"><div class="ex-w"><span class="ex-word">cordĭce</span><span class="ex-tr">'corazón'</span></div><span class="ex-i">[ˈkor.t͡sɨ]</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">florĭta</span><span class="ex-i">[ˈflorʲ.ta]</span></div><span class="ex-tr">'la flor'</span></div>
+        <div class="ex-row"><div class="ex-top"><span class="ex-word">cordĭce</span><span class="ex-i">[ˈkor.t͡sɨ]</span></div><span class="ex-tr">'corazón'</span></div>
       </div>
     </div>
   </div>
