@@ -62,13 +62,37 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
+
+/* arrow buttons flanking the nav */
+.nav-arrow {
+  flex-shrink: 0;
+  width: 36px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--muted);
+  font-size: .9rem;
+  transition: color .15s, background .15s;
+}
+.nav-arrow:first-of-type { border-right: none; }
+.nav-arrow:last-of-type  { border-left: none; margin-left: -1px; }
+.nav-arrow:hover { color: var(--ink); background: var(--off); }
 
 .nav-sections {
   display: flex;
   height: 100%;
+  flex: 1;
   overflow-x: auto;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 .nav-sections::-webkit-scrollbar { display: none; }
 
@@ -81,40 +105,43 @@ body {
 
 .nav-btn {
   height: 100%;
-  padding: 0 1.5rem;
-  font-family: var(--sans);
-  font-size: .72rem;
+  padding: 0 1.4rem;
+  font-family: var(--serif);
+  font-size: .95rem;
   font-weight: 400;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink2);
+  font-style: italic;
+  color: rgba(17,17,16,.35);
   background: none;
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: color .15s;
+  transition: color .18s;
   display: flex;
   align-items: center;
-  gap: .4rem;
+  gap: .35rem;
+  letter-spacing: 0;
 }
-.nav-btn:hover, .nav-btn.active { color: var(--ink); }
+.nav-btn:hover { color: rgba(17,17,16,.7); }
 .nav-btn.active {
-  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 500;
+  border-bottom: 1.5px solid var(--ink);
   margin-bottom: -1px;
 }
 
-/* dropdown */
+/* dropdown — same serif style as the index */
 .nav-dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 200px;
+  min-width: 190px;
   background: var(--white);
   border: 1px solid var(--border);
   border-top: none;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   transition: opacity .15s, transform .15s;
   z-index: 300;
 }
@@ -126,13 +153,13 @@ body {
 
 .nav-drop-item {
   display: block;
-  padding: .65rem 1.25rem;
-  font-family: var(--sans);
-  font-size: .72rem;
-  color: var(--ink2);
-  text-decoration: none;
+  padding: .55rem 1.1rem;
+  font-family: var(--serif);
+  font-size: .92rem;
+  font-style: italic;
+  color: rgba(17,17,16,.38);
   border-bottom: 1px solid var(--border);
-  transition: background .1s, color .1s;
+  transition: color .15s;
   cursor: pointer;
   background: none;
   border-left: none;
@@ -142,7 +169,46 @@ body {
   text-align: left;
 }
 .nav-drop-item:last-child { border-bottom: none; }
-.nav-drop-item:hover { background: var(--off); color: var(--ink); }
+.nav-drop-item:hover { color: var(--ink); background: none; }
+
+/* ── LEFT INDEX ─────────────────────────────────────────────────── */
+#left-index {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  width: 180px;
+  height: calc(100vh - var(--nav-h));
+  padding: 2.5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+  z-index: 50;
+  pointer-events: none; /* panel underneath scrolls normally */
+  transition: opacity .2s;
+}
+#left-index.hidden { opacity: 0; }
+
+.idx-item {
+  font-family: var(--serif);
+  font-size: .88rem;
+  font-style: italic;
+  color: rgba(17,17,16,.22);
+  padding: .22rem 0;
+  cursor: pointer;
+  pointer-events: all;
+  transition: color .18s;
+  line-height: 1.3;
+  background: none;
+  border: none;
+  text-align: left;
+  display: block;
+}
+.idx-item:hover { color: rgba(17,17,16,.6); }
+.idx-item.active {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 500;
+}
 
 /* ── HORIZONTAL CANVAS ──────────────────────────────────────────── */
 #canvas {
@@ -409,10 +475,13 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 <!-- ── TOP NAV ──────────────────────────────────────────────────── -->
 <header id="topnav">
   <div class="nav-brand">Liaga Recrecene</div>
-  <nav class="nav-sections" id="nav-sections">
-    <!-- filled by JS -->
-  </nav>
+  <button class="nav-arrow" id="nav-prev" aria-label="Anterior">&#8592;</button>
+  <nav class="nav-sections" id="nav-sections"></nav>
+  <button class="nav-arrow" id="nav-next" aria-label="Siguiente">&#8594;</button>
 </header>
+
+<!-- LEFT INDEX -->
+<div id="left-index"></div>
 
 <!-- ── HORIZONTAL CANVAS ────────────────────────────────────────── -->
 <div id="canvas">
@@ -1011,43 +1080,59 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 const panels  = [...document.querySelectorAll('.panel')];
 const navEl   = document.getElementById('nav-sections');
 const canvas  = document.getElementById('canvas');
+const leftIdx = document.getElementById('left-index');
+const navPrev = document.getElementById('nav-prev');
+const navNext = document.getElementById('nav-next');
 
-const icon_svg = `<svg viewBox="0 0 16 16" width="8" height="8" fill="currentColor" style="opacity:.45"><path d="M6 4l4 4-4 4"/></svg>`;
+// collect all named anchors per panel
+const panelData = panels.map((panel, i) => {
+  const subs = [...panel.querySelectorAll('[id]')];
+  return { panel, idx: i, label: panel.dataset.label, subs };
+});
 
-panels.forEach((panel, i) => {
-  const id    = panel.dataset.section;
-  const label = panel.dataset.label;
-
-  // collect sub-anchors inside this panel
-  const subs = [...panel.querySelectorAll('[id]')].filter(el => el.id !== id);
-
+// build top nav
+panelData.forEach(({ idx, label, subs }) => {
   const item = document.createElement('div');
   item.className = 'nav-item';
 
   const btn = document.createElement('button');
   btn.className = 'nav-btn';
-  btn.dataset.idx = i;
-  btn.innerHTML = label + (subs.length ? icon_svg : '');
-  btn.addEventListener('click', () => scrollToPanel(i));
+  btn.dataset.idx = idx;
+  // chevron only if has subs
+  btn.innerHTML = label + (subs.length > 1
+    ? ` <svg width="7" height="7" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>`
+    : '');
+  btn.addEventListener('click', () => scrollToPanel(idx));
   item.appendChild(btn);
 
-  if (subs.length) {
+  if (subs.length > 1) {
     const drop = document.createElement('div');
     drop.className = 'nav-dropdown';
     subs.forEach(sub => {
+      const heading = sub.querySelector('h2,h3,h4');
+      if (!heading) return;
       const a = document.createElement('button');
       a.className = 'nav-drop-item';
-      a.textContent = sub.querySelector('h3,h4')?.textContent || sub.id;
+      a.textContent = heading.textContent;
       a.addEventListener('click', () => {
-        scrollToPanel(i);
-        setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 350);
+        scrollToPanel(idx);
+        setTimeout(() => sub.scrollIntoView({ behavior: 'smooth', block: 'start' }), 320);
       });
       drop.appendChild(a);
     });
     item.appendChild(drop);
   }
-
   navEl.appendChild(item);
+});
+
+const navBtns = [...document.querySelectorAll('.nav-btn')];
+
+// ── NAV ARROWS ────────────────────────────────────────────────────
+navPrev.addEventListener('click', () => {
+  navEl.scrollBy({ left: -200, behavior: 'smooth' });
+});
+navNext.addEventListener('click', () => {
+  navEl.scrollBy({ left: 200, behavior: 'smooth' });
 });
 
 // ── SCROLL TO PANEL ────────────────────────────────────────────────
@@ -1055,16 +1140,69 @@ function scrollToPanel(idx) {
   canvas.scrollTo({ left: idx * window.innerWidth, behavior: 'smooth' });
 }
 
-// ── ACTIVE NAV ────────────────────────────────────────────────────
-const navBtns = [...document.querySelectorAll('.nav-btn')];
+// ── BUILD LEFT INDEX ──────────────────────────────────────────────
+// rebuilt whenever panel changes
+function buildLeftIndex(panelIdx) {
+  leftIdx.innerHTML = '';
+  const { subs } = panelData[panelIdx];
+  if (subs.length <= 1) { leftIdx.classList.add('hidden'); return; }
+  leftIdx.classList.remove('hidden');
+
+  subs.forEach(sub => {
+    const heading = sub.querySelector('h2,h3,h4');
+    if (!heading) return;
+    const btn = document.createElement('button');
+    btn.className = 'idx-item';
+    btn.textContent = heading.textContent;
+    btn.dataset.id = sub.id;
+    btn.addEventListener('click', () => {
+      sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    leftIdx.appendChild(btn);
+  });
+}
+
+// ── SCROLL SPY (within panel) ─────────────────────────────────────
+function updateIndexSpy(panelIdx) {
+  const { panel, subs } = panelData[panelIdx];
+  const panelScrollTop = panel.scrollTop;
+  let activeId = subs[0]?.id || '';
+
+  subs.forEach(sub => {
+    // offsetTop relative to panel
+    const top = sub.offsetTop - 140;
+    if (panelScrollTop >= top) activeId = sub.id;
+  });
+
+  document.querySelectorAll('.idx-item').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.id === activeId);
+  });
+}
+
+// ── CANVAS HORIZONTAL SCROLL ──────────────────────────────────────
+let currentPanel = 0;
 
 canvas.addEventListener('scroll', () => {
   const idx = Math.round(canvas.scrollLeft / window.innerWidth);
-  navBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+  if (idx !== currentPanel) {
+    currentPanel = idx;
+    navBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+    buildLeftIndex(idx);
+  }
+  updateIndexSpy(idx);
 }, { passive: true });
+
+// each panel's vertical scroll also updates spy
+panels.forEach((panel, i) => {
+  panel.addEventListener('scroll', () => {
+    if (i === currentPanel) updateIndexSpy(i);
+  }, { passive: true });
+});
 
 // init
 navBtns[0]?.classList.add('active');
+buildLeftIndex(0);
+updateIndexSpy(0);
 
 // ── ALPHABET ──────────────────────────────────────────────────────
 const ALPHA = [
