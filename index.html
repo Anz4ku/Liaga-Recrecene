@@ -387,7 +387,8 @@ strong { font-weight: 500; }
 .tbl-wrap {
   overflow-x: auto;
   margin: 1.1rem 0 .25rem;
-  border: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1.5px solid var(--ink2);
   max-width: 100%;
 }
 table {
@@ -418,6 +419,31 @@ tbody td {
 }
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--off); }
+tbody tr[style*="red"] td { color: var(--red); }
+tbody tr[style*="red"]:hover { background: var(--off); }
+td.aux-cell {
+  background: var(--off);
+  font-style: italic;
+  font-family: var(--serif);
+  border-right: none;
+}
+td.plus-cell {
+  color: var(--muted);
+  font-size: .9rem;
+  width: 1.5rem;
+  vertical-align: middle;
+  border-bottom: none !important;
+  background: var(--white) !important;
+}
+td.part-cell {
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: none !important;
+  background: var(--white) !important;
+}
 td.end {
   font-size: .8rem;
   color: var(--red);
@@ -606,8 +632,60 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
 }
 .word-audio:hover { opacity: 1; background: var(--red); border-color: var(--red); color: #fff; }
 
-/* ── DIVIDER ────────────────────────────────────────────────────── */
-hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+/* ── PENCIL GROUP ────────────────────────────────────────────────── */
+.cj-group {
+  margin: 1.4rem auto;
+  display: inline-grid;
+  grid-template-columns: 1fr 2rem 1fr;
+  align-items: start;
+  gap: 0;
+  width: 100%;
+  max-width: 420px;
+}
+.cj-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+}
+.cj-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.5rem;
+  gap: .55rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+/* pencil-stroke header */
+.cj-head {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: .28rem 0;
+  margin-bottom: .5rem;
+  min-width: 70px;
+  text-align: center;
+  display: inline-block;
+  border-bottom: 1.5px solid var(--ink);
+}
+.cj-word {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.cj-rows { display: contents; }
+/* no borders on pronombre and ejemplo tables in pasado/futuro */
+.tbl-plain { border-top: none !important; border-bottom: none !important; }
+.tbl-plain table { background: transparent; }
+.tbl-plain thead tr { background: transparent !important; }
+.tbl-plain thead th { color: transparent !important; font-size: 0 !important; border: none !important; }
+.tbl-plain tbody td { border-bottom: none !important; background: transparent !important; }
 
 /* ── FOOTER ─────────────────────────────────────────────────────── */
 .foot { font-family: var(--sans); font-size: .65rem; color: var(--muted); margin-top: 3rem; }
@@ -1038,14 +1116,25 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   <div id="infinitivos">
     <h3 class="sub-heading">Infinitivo</h3>
     <p>Terminan en <em>-à</em>, <em>-e</em> o <em>-ī</em>, precedidos de <em>a</em>.</p>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Latín</th><th></th><th>Infinitivo</th></tr></thead>
-      <tbody>
-        <tr><td>LABORARE</td><td>⇒</td><td class="ex-cell"><em>a laborà</em><span class="m2">'trabajar'</span></td></tr>
-        <tr><td>VIDERE</td><td>⇒</td><td class="ex-cell"><em>a vide</em><span class="m2">'ver'</span></td></tr>
-        <tr><td>VENIRE</td><td>⇒</td><td class="ex-cell"><em>a venī</em><span class="m2">'venir'</span></td></tr>
-      </tbody>
-    </table></div>
+    <div style="display:flex;justify-content:center">
+      <div class="cj-group">
+        <div class="cj-col">
+          <span class="cj-head">Latín</span>
+          <span class="cj-word">LABORARE</span>
+          <span class="cj-word">VIDERE</span>
+          <span class="cj-word">VENIRE</span>
+        </div>
+        <div class="cj-col-center">
+          <span>→</span><span>→</span><span>→</span>
+        </div>
+        <div class="cj-col">
+          <span class="cj-head">Infinitivo</span>
+          <span class="cj-word"><em>a laborà</em></span>
+          <span class="cj-word"><em>a vide</em></span>
+          <span class="cj-word"><em>a venī</em></span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="indicativo">
@@ -1056,70 +1145,143 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
       <div class="tbl-wrap"><table>
         <thead><tr><th></th><th></th><th>a laborà</th><th>a muave</th><th>a duce</th><th>a venī</th></tr></thead>
         <tbody>
-          <tr><td>I</td><td><em>io</em></td><td><em>laboro</em></td><td><em>muavio</em></td><td><em>duco</em></td><td><em>venio</em></td></tr>
-          <tr><td>sg. you</td><td><em>ty</em></td><td><em>laboras</em></td><td><em>muavis</em></td><td><em>ducis</em></td><td><em>venis</em></td></tr>
-          <tr><td>he/she</td><td><em>ili/ila</em></td><td><em>laborat</em></td><td><em>muavit</em></td><td><em>ducit</em></td><td><em>venit</em></td></tr>
-          <tr><td>we</td><td><em>noi</em></td><td><em>laboram</em></td><td><em>movim</em></td><td><em>ducim</em></td><td><em>venim</em></td></tr>
-          <tr><td>pl. you</td><td><em>voi</em></td><td><em>laborati</em></td><td><em>moviti</em></td><td><em>duciti</em></td><td><em>veniti</em></td></tr>
-          <tr><td>they</td><td><em>ilī</em></td><td><em>laborut</em></td><td><em>muaviat</em></td><td><em>ducut</em></td><td><em>veniut</em></td></tr>
+          <tr><td>yo</td><td><em>io</em></td><td><em>laboro</em></td><td><em>muavio</em></td><td><em>duco</em></td><td><em>venio</em></td></tr>
+          <tr><td>tú</td><td><em>ty</em></td><td><em>laboras</em></td><td><em>muavis</em></td><td><em>ducis</em></td><td><em>venis</em></td></tr>
+          <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>laborat</em></td><td><em>muavit</em></td><td><em>ducit</em></td><td><em>venit</em></td></tr>
+          <tr><td>nosotros</td><td><em>noi</em></td><td><em>laboram</em></td><td><em>movim</em></td><td><em>ducim</em></td><td><em>venim</em></td></tr>
+          <tr><td>vosotros</td><td><em>voi</em></td><td><em>laborati</em></td><td><em>moviti</em></td><td><em>duciti</em></td><td><em>veniti</em></td></tr>
+          <tr><td>ellos</td><td><em>ilī</em></td><td><em>laborut</em></td><td><em>muaviat</em></td><td><em>ducut</em></td><td><em>veniut</em></td></tr>
         </tbody>
       </table></div>
       <p class="label">Alternancia consonántica</p>
-      <p>En la primera persona del singular, algunas consonantes finales del lexema cambian.</p>
+      <p>En la primera persona del singular y la tercera del plural, la consonante final del lexema cambia según estas reglas.</p>
+      <div style="display:flex;justify-content:center">
+        <div class="cj-group">
+          <div class="cj-col">
+            <span class="cj-head">Consonante</span>
+            <span class="cj-word">T</span>
+            <span class="cj-word">D</span>
+            <span class="cj-word">Z</span>
+            <span class="cj-word">S</span>
+            <span class="cj-word">ST</span>
+          </div>
+          <div class="cj-col-center">
+            <span>→</span><span>→</span><span>→</span><span>→</span><span>→</span>
+          </div>
+          <div class="cj-col">
+            <span class="cj-head">Resultado</span>
+            <span class="cj-word" style="color:var(--red)">TS</span>
+            <span class="cj-word" style="color:var(--red)">G</span>
+            <span class="cj-word" style="color:var(--red)">G</span>
+            <span class="cj-word" style="color:var(--red)">X</span>
+            <span class="cj-word" style="color:var(--red)">SC</span>
+          </div>
+        </div>
+      </div>
       <div class="tbl-wrap"><table>
         <thead><tr><th></th><th></th><th>a siatī</th><th>a crede</th><th>a resiste</th></tr></thead>
         <tbody>
-          <tr><td>I</td><td><em>io</em></td><td><em><strong>siatso</strong></em></td><td><em><strong>cregio</strong></em></td><td><em><strong>resiscio</strong></em></td></tr>
-          <tr><td>sg. you</td><td><em>ty</em></td><td><em>siatis</em></td><td><em>credis</em></td><td><em>resistis</em></td></tr>
-          <tr><td>he/she</td><td><em>ili/ila</em></td><td><em>siatit</em></td><td><em>credit</em></td><td><em>resistit</em></td></tr>
-          <tr><td>we</td><td><em>noi</em></td><td><em>setim</em></td><td><em>credim</em></td><td><em>resistim</em></td></tr>
-          <tr><td>pl. you</td><td><em>voi</em></td><td><em>setiti</em></td><td><em>crediti</em></td><td><em>resistiti</em></td></tr>
-          <tr><td>they</td><td><em>ilī</em></td><td><em>siatsut</em></td><td><em>cregiut</em></td><td><em>resisciut</em></td></tr>
+          <tr style="color:var(--red)"><td>yo</td><td><em>io</em></td><td><em>siatso</em></td><td><em>cregio</em></td><td><em>resiscio</em></td></tr>
+          <tr><td>tú</td><td><em>ty</em></td><td><em>siatis</em></td><td><em>credis</em></td><td><em>resistis</em></td></tr>
+          <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>siatit</em></td><td><em>credit</em></td><td><em>resistit</em></td></tr>
+          <tr><td>nosotros</td><td><em>noi</em></td><td><em>setim</em></td><td><em>credim</em></td><td><em>resistim</em></td></tr>
+          <tr><td>vosotros</td><td><em>voi</em></td><td><em>setiti</em></td><td><em>crediti</em></td><td><em>resistiti</em></td></tr>
+          <tr style="color:var(--red)"><td>ellos</td><td><em>ilī</em></td><td><em>siatsut</em></td><td><em>cregiut</em></td><td><em>resisciut</em></td></tr>
         </tbody>
       </table></div>
-      <div id="irregulares">
-        <p class="label">Irregulares</p>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th><th>a vade</th></tr></thead>
-          <tbody>
-            <tr><td>I</td><td><em>io</em></td><td><em>su</em></td><td><em>au</em></td><td><em>vau</em></td></tr>
-            <tr><td>sg. you</td><td><em>ty</em></td><td><em>es</em></td><td><em>as</em></td><td><em>vas</em></td></tr>
-            <tr><td>he/she</td><td><em>ili/ila/ilo</em></td><td><em>est</em></td><td><em>at</em></td><td><em>va(t)</em></td></tr>
-            <tr><td>we</td><td><em>noi</em></td><td><em>som</em></td><td><em>am</em></td><td><em>vam</em></td></tr>
-            <tr><td>pl. you</td><td><em>voi</em></td><td><em>esti</em></td><td><em>ati</em></td><td><em>vati</em></td></tr>
-            <tr><td>they</td><td><em>ilī</em></td><td><em>sut</em></td><td><em>aut</em></td><td><em>vaut</em></td></tr>
-          </tbody>
-        </table></div>
-      </div>
     </div>
 
     <div id="pasado">
       <h4 class="subsub-heading">Pasado</h4>
-      <p><em>a ave</em> + participio.</p>
-      <div class="exs">
-        <div class="ex-row"><div class="ex-top"><span class="ex-word">io au udàt</span></div><span class="ex-tr">'I heard.'</span></div>
-      </div>
+      <p>Se forma con el verbo <em>a ave</em> como auxiliar seguido del participio del verbo.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th></th><th>Auxiliar</th><th></th><th></th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>yo</td><td><em>io</em></td><td class="aux-cell"><em>au</em></td><td rowspan="6" class="plus-cell">+</td><td rowspan="6" class="part-cell"><em>vis</em></td><td class="ex-cell"><em>io au vis</em><span class="m2">'yo vi'</span></td></tr>
+          <tr><td>tú</td><td><em>ty</em></td><td class="aux-cell"><em>as</em></td><td class="ex-cell"><em>ty as vis</em><span class="m2">'tú viste'</span></td></tr>
+          <tr><td>él/ella</td><td><em>ili/ila</em></td><td class="aux-cell"><em>a</em></td><td class="ex-cell"><em>ili a vis</em><span class="m2">'él vio'</span></td></tr>
+          <tr><td>nosotros</td><td><em>noi</em></td><td class="aux-cell"><em>am</em></td><td class="ex-cell"><em>noi am vis</em><span class="m2">'nosotros vimos'</span></td></tr>
+          <tr><td>vosotros</td><td><em>voi</em></td><td class="aux-cell"><em>ati</em></td><td class="ex-cell"><em>voi ati vis</em><span class="m2">'vosotros visteis'</span></td></tr>
+          <tr><td>ellos</td><td><em>ilī</em></td><td class="aux-cell"><em>aut</em></td><td class="ex-cell"><em>ilī aut vis</em><span class="m2">'ellos vieron'</span></td></tr>
+        </tbody>
+      </table></div>
     </div>
 
     <div id="futuro">
       <h4 class="subsub-heading">Futuro</h4>
-      <p><em>a vade</em> + infinitivo.</p>
-      <div class="exs">
-        <div class="ex-row"><div class="ex-top"><span class="ex-word">io vau vide</span></div><span class="ex-tr">'I will see.'</span></div>
-      </div>
+      <p>Se forma con el verbo <em>a vade</em> como auxiliar seguido del infinitivo del verbo.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th></th><th>Auxiliar</th><th></th><th></th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>yo</td><td><em>io</em></td><td class="aux-cell"><em>vau</em></td><td rowspan="6" class="plus-cell">+</td><td rowspan="6" class="part-cell"><em>vide</em></td><td class="ex-cell"><em>io vau vide</em><span class="m2">'yo veré'</span></td></tr>
+          <tr><td>tú</td><td><em>ty</em></td><td class="aux-cell"><em>vas</em></td><td class="ex-cell"><em>ty vas vide</em><span class="m2">'tú verás'</span></td></tr>
+          <tr><td>él/ella</td><td><em>ili/ila</em></td><td class="aux-cell"><em>va</em></td><td class="ex-cell"><em>ili va vide</em><span class="m2">'él verá'</span></td></tr>
+          <tr><td>nosotros</td><td><em>noi</em></td><td class="aux-cell"><em>vam</em></td><td class="ex-cell"><em>noi vam vide</em><span class="m2">'nosotros veremos'</span></td></tr>
+          <tr><td>vosotros</td><td><em>voi</em></td><td class="aux-cell"><em>vate</em></td><td class="ex-cell"><em>voi vate vide</em><span class="m2">'vosotros veréis'</span></td></tr>
+          <tr><td>ellos</td><td><em>ilī</em></td><td class="aux-cell"><em>vaut</em></td><td class="ex-cell"><em>ilī vaut vide</em><span class="m2">'ellos verán'</span></td></tr>
+        </tbody>
+      </table></div>
     </div>
   </div>
 
   <div id="gerundio">
-    <h3 class="sub-heading">Gerundio y Participio</h3>
+    <h3 class="sub-heading">Gerundio</h3>
+    <div style="display:flex;justify-content:center">
+      <div class="cj-group">
+        <div class="cj-col">
+          <span class="cj-head">Base</span>
+          <span class="cj-word"><em>laborà</em></span>
+          <span class="cj-word"><em>crede</em></span>
+        </div>
+        <div class="cj-col-center">
+          <span>→</span>
+          <span>→</span>
+        </div>
+        <div class="cj-col">
+          <span class="cj-head">Gerundio</span>
+          <span class="cj-word"><em>laború</em></span>
+          <span class="cj-word"><em>credià</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="participio">
+    <h3 class="sub-heading">Participio</h3>
+    <div style="display:flex;justify-content:center">
+      <div class="cj-group">
+        <div class="cj-col">
+          <span class="cj-head">Base</span>
+          <span class="cj-word"><em>laborà</em></span>
+          <span class="cj-word"><em>esse</em></span>
+          <span class="cj-word"><em>ave</em></span>
+        </div>
+        <div class="cj-col-center">
+          <span>→</span>
+          <span>→</span>
+          <span>→</span>
+        </div>
+        <div class="cj-col">
+          <span class="cj-head">Participio</span>
+          <span class="cj-word"><em>laboràt</em></span>
+          <span class="cj-word"><em>stat</em></span>
+          <span class="cj-word"><em>avyt</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="irregulares">
+    <h3 class="sub-heading">Verbos irregulares</h3>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>Base</th><th></th><th>Forma</th></tr></thead>
+      <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th><th>a vade</th></tr></thead>
       <tbody>
-        <tr><td class="ex-cell"><em>laborà</em></td><td>ger.</td><td class="ex-cell"><em>laború</em></td></tr>
-        <tr><td class="ex-cell"><em>crede</em></td><td>ger.</td><td class="ex-cell"><em>credià</em></td></tr>
-        <tr><td class="ex-cell"><em>laborà</em></td><td>part.</td><td class="ex-cell"><em>laboràt</em></td></tr>
-        <tr><td class="ex-cell"><em>esse</em></td><td>part.</td><td class="ex-cell"><em>stat</em></td></tr>
-        <tr><td class="ex-cell"><em>ave</em></td><td>part.</td><td class="ex-cell"><em>avyt</em></td></tr>
+        <tr><td>yo</td><td><em>io</em></td><td><em>su</em></td><td><em>au</em></td><td><em>vau</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>es</em></td><td><em>as</em></td><td><em>vas</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila/ilo</em></td><td><em>est</em></td><td><em>at</em></td><td><em>va(t)</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>som</em></td><td><em>am</em></td><td><em>vam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>esti</em></td><td><em>ati</em></td><td><em>vati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>sut</em></td><td><em>aut</em></td><td><em>vaut</em></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1128,8 +1290,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     <h3 class="sub-heading">Negación</h3>
     <p><em>nu</em> antes del verbo.</p>
     <div class="exs">
-      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili vidit vyn cat.</span></div><span class="ex-tr">'He sees a cat.'</span></div>
-      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili <strong>nu</strong> vidit vyn cat.</span></div><span class="ex-tr">'He does not see a cat.'</span></div>
+      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili vidit vyn cat.</span></div><span class="ex-tr">'Él ve un gato.'</span></div>
+      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili <strong>nu</strong> vidit vyn cat.</span></div><span class="ex-tr">'Él no ve un gato.'</span></div>
     </div>
   </div>
 
