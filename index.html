@@ -172,7 +172,7 @@ body {
   border-right: none;
   border-top: none;
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 .nav-drop-item:last-child { border-bottom: none; }
 .nav-drop-item:hover { color: var(--ink); background: none; }
@@ -245,7 +245,7 @@ body {
   font-size: .82rem;
   font-style: italic;
   color: rgba(17,17,16,.2);
-  padding: .2rem 0;
+  padding: .2rem .5rem;
   cursor: pointer;
   transition: color .18s;
   line-height: 1.35;
@@ -254,6 +254,19 @@ body {
   text-align: center;
   display: block;
   width: 100%;
+  /* reserve bold width to prevent reflow */
+  position: relative;
+}
+/* invisible bold clone to reserve width */
+.idx-item::after {
+  content: attr(data-text);
+  display: block;
+  font-weight: 500;
+  font-style: normal;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
 }
 .idx-item:hover { color: rgba(17,17,16,.55); }
 .idx-item.active {
@@ -1227,6 +1240,7 @@ panelData.forEach(({ panel, tree }) => {
     const btn = document.createElement('button');
     btn.className = 'idx-item';
     btn.textContent = heading.textContent;
+    btn.dataset.text = heading.textContent;
     btn.dataset.id = sec.id;
     btn.addEventListener('click', () =>
       panel.scrollTo({ top: sec.offsetTop - 24, behavior: 'smooth' }));
@@ -1238,6 +1252,7 @@ panelData.forEach(({ panel, tree }) => {
       const sub = document.createElement('button');
       sub.className = 'idx-item idx-sub';
       sub.textContent = ch.textContent;
+      sub.dataset.text = ch.textContent;
       sub.dataset.id = child.id;
       sub.dataset.parent = sec.id;
       sub.addEventListener('click', () =>
@@ -1296,7 +1311,9 @@ panelData.forEach(({ idx, label, tree, panel }) => {
     const openDrop = () => {
       clearTimeout(closeTimer);
       const rect = btn.getBoundingClientRect();
-      drop.style.left = rect.left + 'px';
+      const dropW = 190;
+      drop.style.left = Math.max(0, rect.left + rect.width / 2 - dropW / 2) + 'px';
+      drop.style.minWidth = dropW + 'px';
       drop.classList.add('open');
     };
     const closeDrop = () => { closeTimer = setTimeout(() => drop.classList.remove('open'), 140); };
