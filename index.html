@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Liaga Recrecene</title>
+<title>Liaga Recrecenie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
@@ -223,6 +223,7 @@ body {
   scroll-snap-align: start;
   display: grid;
   grid-template-columns: 190px minmax(0, 1fr);
+  box-sizing: border-box;
 }
 .panel::-webkit-scrollbar { width: 3px; }
 .panel::-webkit-scrollbar-thumb { background: var(--border); }
@@ -306,6 +307,7 @@ body {
   width: 100%;
   min-width: 0;
 }
+
 
 /* ── SECTION HEADER ─────────────────────────────────────────────── */
 /* ── SECTION HEADER ─────────────────────────────────────────────── */
@@ -714,7 +716,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
 
 <!-- ── TOP NAV ──────────────────────────────────────────────────── -->
 <header id="topnav">
-  <div class="nav-brand">Liaga Recrecene</div>
+  <div class="nav-brand">Liaga Recrecenie</div>
   <button class="nav-arrow" id="nav-prev" aria-label="Anterior">&#8592;</button>
   <nav class="nav-sections" id="nav-sections"></nav>
   <button class="nav-arrow" id="nav-next" aria-label="Siguiente">&#8594;</button>
@@ -805,7 +807,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
       <h4 class="subsub-heading">Diacríticos vocálicos</h4>
 
       <p class="label">La Ī</p>
-      <p>El macrón indica que <em>i</em> mantiene su valor vocálico pleno en lugar de convertirse en <span class="ipa">[j]</span> o <span class="ipa">[<sup>j</sup>]</span>.</p>
+      <p>El macrón indica que <em>i</em> mantienie su valor vocálico pleno en lugar de convertirse en <span class="ipa">[j]</span> o <span class="ipa">[<sup>j</sup>]</span>.</p>
       <div class="exs">
         <div class="ex-row"><div class="ex-top"><span class="ex-word">ioc</span><span class="ex-i">[jok]</span></div><span class="ex-tr">'juego'</span></div>
         <div class="ex-row"><div class="ex-top"><span class="ex-word">vīa</span><span class="ex-i">[ˈvʲi.a]</span></div><span class="ex-tr">'vía'</span></div>
@@ -923,12 +925,12 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <div class="tbl-wrap"><table>
       <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th></tr></thead>
       <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-cons.</span><em>mur</em><span class="m2">'muro'</span></td><td class="ex-cell"><span class="end">-y</span><em>mury</em><span class="m2">'muros'</span></td></tr>
+        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-cons.</span><em>mod</em><span class="m2">'modo'</span></td><td class="ex-cell"><span class="end">-y</span><em>mody</em><span class="m2">'modos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-a</span><em>natura</em><span class="m2">'naturaleza'</span></td><td class="ex-cell"><span class="end">-y</span><em>natury</em><span class="m2">'naturalezas'</span></td></tr>
         <tr><td>neutro</td><td class="ex-cell"><span class="end">-o</span><em>amicho</em><span class="m2">'amigo'</span></td><td class="ex-cell"><span class="end">-a</span><em>amicha</em><span class="m2">'amigos'</span></td></tr>
         <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-i</span><em>ochi</em><span class="m2">'ojo'</span></td><td class="ex-cell"><span class="end">-ī</span><em>ochī</em><span class="m2">'ojos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-i</span><em>flori</em><span class="m2">'flor'</span></td><td class="ex-cell"><span class="end">-ī</span><em>florī</em><span class="m2">'flores'</span></td></tr>
-        <tr><td>neutro</td><td class="ex-cell"><span class="end">-e</span><em>struene</em><span class="m2">'construcción'</span></td><td class="ex-cell"><span class="end">-ia</span><em>struenia</em><span class="m2">'construcciones'</span></td></tr>
+        <tr><td>neutro</td><td class="ex-cell"><span class="end">-e</span><em>mare</em><span class="m2">'mar'</span></td><td class="ex-cell"><span class="end">-ia</span><em>maria</em><span class="m2">'mares'</span></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -938,12 +940,12 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <div class="tbl-wrap"><table>
       <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th></tr></thead>
       <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-y</span><em>mury</em><span class="m2">'del muro'</span></td><td class="ex-cell"><span class="end">-ur</span><em>murur</em><span class="m2">'de los muros'</span></td></tr>
+        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-y</span><em>mody</em><span class="m2">'del modo'</span></td><td class="ex-cell"><span class="end">-ur</span><em>modur</em><span class="m2">'de los modos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-y</span><em>natury</em><span class="m2">'de la naturaleza'</span></td><td class="ex-cell"><span class="end">-ar</span><em>naturar</em><span class="m2">'de las naturalezas'</span></td></tr>
         <tr><td>neutro</td><td class="ex-cell"><span class="end">-y</span><em>amichy</em><span class="m2">'del amigo'</span></td><td class="ex-cell"><span class="end">-or</span><em>amichor</em><span class="m2">'de los amigos'</span></td></tr>
         <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-ī</span><em>ochī</em><span class="m2">'del ojo'</span></td><td class="ex-cell"><span class="end">-er</span><em>ocher</em><span class="m2">'de los ojos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-ī</span><em>florī</em><span class="m2">'de la flor'</span></td><td class="ex-cell"><span class="end">-er</span><em>florer</em><span class="m2">'de las flores'</span></td></tr>
-        <tr><td>neutro</td><td class="ex-cell"><span class="end">-ī</span><em>struenī</em><span class="m2">'de la construcción'</span></td><td class="ex-cell"><span class="end">-er</span><em>struener</em><span class="m2">'de las construcciones'</span></td></tr>
+        <tr><td>neutro</td><td class="ex-cell"><span class="end">-ī</span><em>marī</em><span class="m2">'del mar'</span></td><td class="ex-cell"><span class="end">-er</span><em>marer</em><span class="m2">'de los mares'</span></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -953,18 +955,26 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <div class="tbl-wrap"><table>
       <thead><tr><th>Decl.</th><th>Género</th><th>Sg.</th><th>Pl.</th></tr></thead>
       <tbody>
-        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-u</span><em>muru</em><span class="m2">'al muro'</span></td><td class="ex-cell"><span class="end">-is</span><em>muris</em><span class="m2">'a los muros'</span></td></tr>
+        <tr><td rowspan="3"><strong>Dura</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-u</span><em>modu</em><span class="m2">'al modo'</span></td><td class="ex-cell"><span class="end">-is</span><em>modis</em><span class="m2">'a los modos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-ē</span><em>naturē</em><span class="m2">'a la naturaleza'</span></td><td class="ex-cell"><span class="end">-is</span><em>naturis</em><span class="m2">'a las naturalezas'</span></td></tr>
         <tr><td>neutro</td><td class="ex-cell"><span class="end">-u</span><em>amichu</em><span class="m2">'al amigo'</span></td><td class="ex-cell"><span class="end">-is</span><em>amichis</em><span class="m2">'a los amigos'</span></td></tr>
         <tr><td rowspan="3"><strong>Blanda</strong></td><td>masc.</td><td class="ex-cell"><span class="end">-iu</span><em>ochiu</em><span class="m2">'al ojo'</span></td><td class="ex-cell"><span class="end">-im</span><em>òchim</em><span class="m2">'a los ojos'</span></td></tr>
         <tr><td>fem.</td><td class="ex-cell"><span class="end">-e</span><em>flore</em><span class="m2">'a la flor'</span></td><td class="ex-cell"><span class="end">-im</span><em>flòrim</em><span class="m2">'a las flores'</span></td></tr>
-        <tr><td>neutro</td><td class="ex-cell"><span class="end">-iu</span><em>strueniu</em><span class="m2">'a la construcción'</span></td><td class="ex-cell"><span class="end">-im</span><em>struènim</em><span class="m2">'a las construcciones'</span></td></tr>
+        <tr><td>neutro</td><td class="ex-cell"><span class="end">-iu</span><em>mariu</em><span class="m2">'al mar'</span></td><td class="ex-cell"><span class="end">-im</span><em>màrim</em><span class="m2">'a los mares'</span></td></tr>
       </tbody>
     </table></div>
   </div>
 
+  <div id="neutro-irreg">
+    <h3 class="sub-heading">Neutros <br>irregulares</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div id="deriv-sust-all">
+    <h3 class="sub-heading">Derivaciones <br>sustantivales</h3>
+
   <div id="deriv-adj">
-    <h3 class="sub-heading">Derivación desde<br>adjetivos</h3>
+    <h4 class="subsub-heading">Desde adjetivos</h4>
     <p>Usando el sufijo <em>-iosti</em>.</p>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
       <span style="font-family:var(--serif);font-style:italic"><em>reali</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'real'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>realiosti</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'realidad'</span></span>
@@ -973,13 +983,13 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
   </div>
 
   <div id="deriv-verb">
-    <h3 class="sub-heading">Derivación desde<br>verbos</h3>
+    <h4 class="subsub-heading">Desde verbos</h4>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Sufijo</th><th>Uso</th><th>Ejemplo</th></tr></thead>
       <tbody>
-        <tr><td class="end">-ene</td><td>Acciones, procesos, estados o resultados.</td><td class="ex-cell"><em>studià→studene</em><span class="m2">'estudio'</span></td></tr>
+        <tr><td class="end">-enie</td><td>Acciones, procesos, estados o resultados.</td><td class="ex-cell"><em>studià→studenie</em><span class="m2">'estudio'</span></td></tr>
         <tr><td class="end">-atsa</td><td>Deriva verbos de primera conjugación.</td><td class="ex-cell"><em>confirmà→confirmatsa</em><span class="m2">'confirmación'</span></td></tr>
-        <tr><td class="end">-iatsa</td><td>Deriva verbos de segunda conjugación.</td><td class="ex-cell"><em>sci→sciatsa</em><span class="m2">'conocimiento'</span></td></tr>
+        <tr><td class="end">-iiatsa</td><td>Deriva verbos de segunda conjugación.</td><td class="ex-cell"><em>sci→sciiatsa</em><span class="m2">'conocimiento'</span></td></tr>
         <tr><td class="end">-agi</td><td>Acciones, procesos, resultados, colecciones u objetos.</td><td class="ex-cell"><em>paizagi</em><span class="m2">'paisaje'</span></td></tr>
         <tr><td class="end">-iz</td><td>Indica resultados, procesos u objetos.</td><td class="ex-cell"><em>analizà→anàliz</em><span class="m2">'análisis'</span></td></tr>
         <tr><td class="end">-miato</td><td>Expresa el proceso o resultado de una acción.</td><td class="ex-cell"><em>tratà→tratamiato</em><span class="m2">'tratamiento'</span></td></tr>
@@ -988,12 +998,14 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
   </div>
 
   <div id="deriv-sust">
-    <h3 class="sub-heading">Derivación desde<br>sustantivos</h3>
+    <h4 class="subsub-heading">Desde sustantivos</h4>
     <p>Usando el sufijo <em>-ario</em>.</p>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
       <span style="font-family:var(--serif);font-style:italic"><em>aca</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'agua'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>acario</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'acuario'</span></span>
       <span style="font-family:var(--serif);font-style:italic"><em>hiarba</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'hierba'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>herbario</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'herbario'</span></span>
     </div></div>
+  </div>
+
   </div>
 
   <div id="deriv-agente">
@@ -1009,6 +1021,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
           <tr><td class="end">-er</td><td>Sustantivos</td><td>Neoprofesiones, usuarios activos.</td><td class="ex-cell"><em>instagram→instagramer</em><span class="m2">'instagramer'</span></td></tr>
           <tr><td class="end">-isto</td><td>Sustantivos</td><td>Especialistas, artes, deportes, ideología.</td><td class="ex-cell"><em>violin→violinisto</em><span class="m2">'violinista'</span></td></tr>
           <tr><td class="end">-ute / -iate</td><td>Verbos</td><td>Internacionalismos.</td><td class="ex-cell"><em>studià→studiate</em><span class="m2">'estudiante'</span></td></tr>
+          <tr><td class="end">-ario</td><td>Sustantivos</td><td>Profesiones relacionadas con un objeto.</td><td class="ex-cell"><em>pani→paniario</em><span class="m2">'panadero'</span></td></tr>
         </tbody>
       </table></div>
     </div>
@@ -1106,9 +1119,9 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <h3 class="sub-heading">Adjetivización</h3>
     <p>Sufijos para convertir un sustantivo en adjetivo.</p>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
-      <span style="font-family:var(--serif);font-style:italic"><em>arena</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'arena'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>arenos</em><span class="end" style="display:inline;font-size:.7rem"> (-os)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'arenoso'</span></span>
+      <span style="font-family:var(--serif);font-style:italic"><em>arena</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'arena'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>arenosŭ</em><span class="end" style="display:inline;font-size:.7rem"> (-os)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'arenoso'</span></span>
       <span style="font-family:var(--serif);font-style:italic"><em>latin</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'latín'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>latinsc</em><span class="end" style="display:inline;font-size:.7rem"> (-sc)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'latino'</span></span>
-      <span style="font-family:var(--serif);font-style:italic"><em>vulcan</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'volcán'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>vulcanicesc</em><span class="end" style="display:inline;font-size:.7rem"> (-icesc)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'volcánico'</span></span>
+      <span style="font-family:var(--serif);font-style:italic"><em>voucan</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'volcán'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>voucanicesc</em><span class="end" style="display:inline;font-size:.7rem"> (-icesc)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'volcánico'</span></span>
       <span style="font-family:var(--serif);font-style:italic"><em>natsa</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'nación'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>natsonali</em><span class="end" style="display:inline;font-size:.7rem"> (-onali)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'nacional'</span></span>
       <span style="font-family:var(--serif);font-style:italic"><em>mysica</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'música'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>mysicali</em><span class="end" style="display:inline;font-size:.7rem"> (-ali)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'musical'</span></span>
       <span style="font-family:var(--serif);font-style:italic"><em>contra</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'contra'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>contrari</em><span class="end" style="display:inline;font-size:.7rem"> (-ari)</span><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'contrario'</span></span>
@@ -1119,12 +1132,82 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <h3 class="sub-heading">Adjetivos verbales</h3>
     <p>Se forman añadiendo <em>-uti</em> para la primera conjugación, <em>-iati</em> para la segunda y <em>-iati</em> para la tercera. El acento recae en la última sílaba. El plural se forma añadiendo <em>-i</em>.</p>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
-      <span style="font-family:var(--serif);font-style:italic"><em>laborà</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>laboruti</em></span>
+      <span style="font-family:var(--serif);font-style:italic"><em>lavorà</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>lavoruti</em></span>
       <span style="font-family:var(--serif);font-style:italic"><em>crede</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>crediati</em></span>
-      <span style="font-family:var(--serif);font-style:italic"><em>venī</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>veniati</em></span>
+      <span style="font-family:var(--serif);font-style:italic"><em>venī</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>veniiati</em></span>
       <span style="font-family:var(--serif);font-style:italic"><em>esse</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>essiati</em></span>
       <span style="font-family:var(--serif);font-style:italic"><em>ave</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>aviati</em></span>
     </div></div>
+  </div>
+
+  <div id="adj-comparativo">
+    <h3 class="sub-heading">Comparativo</h3>
+    <p>Ante <em>-ior/-iory</em>, las consonantes finales del adjetivo cambian:</p>
+    <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem;text-align:center">
+      <span style="font-family:var(--serif);font-style:italic">T</span><span style="color:var(--muted)">→</span><span style="font-family:var(--serif);font-style:italic;color:var(--red)">TS</span>
+      <span style="font-family:var(--serif);font-style:italic">D</span><span style="color:var(--muted)">→</span><span style="font-family:var(--serif);font-style:italic;color:var(--red)">G</span>
+      <span style="font-family:var(--serif);font-style:italic">Z</span><span style="color:var(--muted)">→</span><span style="font-family:var(--serif);font-style:italic;color:var(--red)">G</span>
+      <span style="font-family:var(--serif);font-style:italic">S</span><span style="color:var(--muted)">→</span><span style="font-family:var(--serif);font-style:italic;color:var(--red)">X</span>
+      <span style="font-family:var(--serif);font-style:italic">ST</span><span style="color:var(--muted)">→</span><span style="font-family:var(--serif);font-style:italic;color:var(--red)">SC</span>
+    </div></div>
+
+    <div id="adj-comp-sup">
+      <h4 class="subsub-heading">Superioridad</h4>
+      <p>Adjetivo + <em>-ior</em> (sg.) / <em>-iory</em> (pl.) + <em>ca</em>.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Ili est felicior ca io.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Él es más feliz que yo.'</span></div>
+        <div style="text-align:center"><em>Ilī sut feliciory ca noi.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Ellos son más felices que nosotros.'</span></div>
+      </div>
+    </div>
+
+    <div id="adj-comp-inf">
+      <h4 class="subsub-heading">Inferioridad</h4>
+      <p><em>min</em> + adjetivo + <em>ca</em>.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Ili est min aut ca ty.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Él es menos alto que tú.'</span></div>
+      </div>
+    </div>
+
+    <div id="adj-comp-igu">
+      <h4 class="subsub-heading">Igualdad</h4>
+      <p><em>ta</em> + adjetivo + <em>ca</em>.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Ila est ta felici ca ili.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Ella es tan feliz como él.'</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adj-superlativo">
+    <h3 class="sub-heading">Superlativo</h3>
+
+    <div id="adj-sup-sup">
+      <h4 class="subsub-heading">Superioridad</h4>
+      <p>Adjetivo + artículo (concuerda en género y número) + <em>mai</em>.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Ila est felicĭta mai.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Ella es la más feliz.'</span></div>
+      </div>
+    </div>
+
+    <div id="adj-sup-inf">
+      <h4 class="subsub-heading">Inferioridad</h4>
+      <p>Adjetivo + artículo (concuerda en género y número) + <em>min</em>.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Ila est felicĭta min.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Ella es la menos feliz.'</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adj-irregulares">
+    <h3 class="sub-heading">Comparativos irregulares</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Sg.</th><th>Pl.</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td class="ex-cell"><em>milior</em></td><td class="ex-cell"><em>miliory</em></td><td>'mejor'</td></tr>
+        <tr><td class="ex-cell"><em>peior</em></td><td class="ex-cell"><em>peiory</em></td><td>'peor'</td></tr>
+        <tr><td class="ex-cell"><em>maior</em></td><td class="ex-cell"><em>maiory</em></td><td>'mayor'</td></tr>
+        <tr><td class="ex-cell"><em>minor</em></td><td class="ex-cell"><em>minory</em></td><td>'menor'</td></tr>
+      </tbody>
+    </table></div>
   </div>
 
 </div>
@@ -1146,10 +1229,10 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <div class="tbl-wrap"><table>
       <thead><tr><th>Género</th><th>Nº</th><th>Base</th><th>Sufijo</th><th>Con artículo</th></tr></thead>
       <tbody>
-        <tr><td>masc.</td><td>sg.</td><td class="ex-cell"><em>mur</em><span class="m2">'muro'</span></td><td class="ex-cell"><span class="end">-ot</span><em>murot</em><span class="m2">'el muro'</span></td></tr>
-        <tr><td>fem.</td><td>sg.</td><td class="ex-cell"><em>natura</em><span class="m2">'naturaleza'</span></td><td class="ex-cell"><span class="end">-ta</span><em>naturata</em><span class="m2">'la naturaleza'</span></td></tr>
-        <tr><td>neutro</td><td>sg.</td><td class="ex-cell"><em>amicho</em><span class="m2">'amigo'</span></td><td class="ex-cell"><span class="end">-to</span><em>amichoto</em><span class="m2">'el amigo'</span></td></tr>
-        <tr><td>todos</td><td>pl.</td><td class="ex-cell"><em>mury</em><span class="m2">'muros'</span></td><td class="ex-cell"><span class="end">-te</span><em>muryte</em><span class="m2">'los muros'</span></td></tr>
+        <tr><td>masc.</td><td>sg.</td><td class="ex-cell"><em>mod</em><span class="m2">'modo'</span></td><td class="end">-ot</td><td class="ex-cell"><em>modot</em><span class="m2">'el modo'</span></td></tr>
+        <tr><td>fem.</td><td>sg.</td><td class="ex-cell"><em>natura</em><span class="m2">'naturaleza'</span></td><td class="end">-ta</td><td class="ex-cell"><em>naturata</em><span class="m2">'la naturaleza'</span></td></tr>
+        <tr><td>neutro</td><td>sg.</td><td class="ex-cell"><em>amicho</em><span class="m2">'amigo'</span></td><td class="end">-to</td><td class="ex-cell"><em>amichoto</em><span class="m2">'el amigo'</span></td></tr>
+        <tr><td>todos</td><td>pl.</td><td class="ex-cell"><em>mody</em><span class="m2">'modos'</span></td><td class="end">-te</td><td class="ex-cell"><em>modyte</em><span class="m2">'los modos'</span></td></tr>
       </tbody>
     </table></div>
     <h4 class="subsub-heading">Geminación</h4>
@@ -1186,7 +1269,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
   <h2 class="section-heading">Pronombres</h2>
 
   <div id="pron-pers">
-    <h3 class="sub-heading">Pronombres personales</h3>
+    <h3 class="sub-heading">Pronombres <br>personales</h3>
     <ul class="quotes">
       <li><em>Io te vigio.</em><span class="tr">— 'Te veo.'</span></li>
       <li><em>Ilī vaut noiscu.</em><span class="tr">— 'Ellos van con nosotros.'</span></li>
@@ -1204,13 +1287,11 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     </table></div>
     <h4 class="subsub-heading">Ilo — pronombre neutro</h4>
     <p>Referencia a persona de género desconocido o no relevante.</p>
-    <ul class="quotes">
-      <li><em>Cregio ce ilo nu vualit videmia aci.</em><span class="tr">— 'Creo que no quieren verme aquí.'</span></li>
-    </ul>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0"><div style="text-align:center"><em>Cregio ce ilo nu vualit videmia aci.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'Creo que no quieren verme aquí.'</span></div></div>
   </div>
 
   <div id="pron-pos">
-    <h3 class="sub-heading">Pronombres posesivos</h3>
+    <h3 class="sub-heading">Pronombres <br>posesivos</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th></th><th>Pron.</th><th>Masc.</th><th>Neutro</th><th>Fem.</th><th>Plural</th></tr></thead>
       <tbody>
@@ -1236,6 +1317,66 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     </table></div>
   </div>
 
+  <div id="pron-to">
+    <h3 class="sub-heading">To</h3>
+    <p>Pronombre neutro de objeto directo. No se refiere a un sustantivo específico sino a una idea neutral o abstracta.</p>
+    <ul class="quotes">
+      <li><em>Remnio to ce as dit.</em><span class="tr">'Recuerdo lo que dijiste.'</span></li>
+      <li><em>To hiarī me a surpriàs.</em><span class="tr">'Lo que pasó ayer me sorprendió.'</span></li>
+      <li><em>To ce a passàt a stat mouto grave.</em><span class="tr">'Lo que pasó fue muy grave.'</span></li>
+      <li><em>Nu to sciea.</em><span class="tr">'No lo sabía.'</span></li>
+      <li><em>Ia to avea piasàt.</em><span class="tr">'Ya lo había pensado.'</span></li>
+      <li><em>Est intelligiati? To est.</em><span class="tr">'¿Es inteligente? Lo es.'</span></li>
+    </ul>
+  </div>
+
+  <div id="pron-cy">
+    <h3 class="sub-heading">Cy</h3>
+    <p>Pronombre clítico que cumple múltiples funciones gramaticales. Sustituye frecuentemente sintagmas preposicionales con <em>a</em>, <em>in</em> o <em>s</em>, y puede referirse a lugares, ideas abstractas o formar parte de expresiones fijas.</p>
+    <ul class="quotes">
+      <li>
+        <div style="display:inline-grid;grid-template-columns:auto auto auto;gap:.1rem .6rem;align-items:start">
+          <em>Vau universitatĭta cisce giurn.</em><span style="color:var(--muted)">→</span><em>Cy vau cisce giurn.</em>
+          <span class="tr" style="font-size:.78rem">'Voy a la universidad cada día.'</span><span></span><span class="tr" style="font-size:.78rem">'Voy allí cada día.'</span>
+        </div>
+      </li>
+      <li>
+        <div style="display:inline-grid;grid-template-columns:auto auto auto;gap:.1rem .6rem;align-items:start">
+          <em>Nu piaso in tò.</em><span style="color:var(--muted)">→</span><em>Nu cy piaso.</em>
+          <span class="tr" style="font-size:.78rem">'No pienso en eso.'</span><span></span><span class="tr" style="font-size:.78rem">'No pienso en ello.'</span>
+        </div>
+      </li>
+      <li>
+        <div style="display:inline-grid;grid-template-columns:auto auto auto;gap:.1rem .6rem;align-items:start">
+          <em>Se at adaptàt a lavorot nuav.</em><span style="color:var(--muted)">→</span><em>Se cy at adaptàt.</em>
+          <span class="tr" style="font-size:.78rem">'Se adaptó al nuevo trabajo.'</span><span></span><span class="tr" style="font-size:.78rem">'Se adaptó (al nuevo trabajo).'</span>
+        </div>
+      </li>
+      <li>
+        <div style="display:inline-grid;grid-template-columns:auto auto auto;gap:.1rem .6rem;align-items:start">
+          <em>Cufigo in ty.</em><span style="color:var(--muted)">→</span><em>Cy cufigo.</em>
+          <span class="tr" style="font-size:.78rem">'Confío en ti.'</span><span></span><span class="tr" style="font-size:.78rem">'(En ti) confío.'</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="pron-in">
+    <h3 class="sub-heading">In</h3>
+    <p>Pronombre clítico partitivo. Sustituye complementos introducidos por <em>de</em> o expresiones de cantidad.</p>
+    <ul class="quotes">
+      <li>
+        <div style="display:inline-grid;grid-template-columns:auto auto auto;gap:.1rem .6rem;align-items:start">
+          <em>As mouto denari.</em><span style="color:var(--muted)">→</span><em>In as mouto.</em>
+          <span class="tr" style="font-size:.78rem">'Tienes mucho dinero.'</span><span></span><span class="tr" style="font-size:.78rem">'Tienes mucho (de ello).'</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════════
      PANEL 6 — VERBOS
 ═══════════════════════════════════════════════════════════════ -->
@@ -1250,7 +1391,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <h3 class="sub-heading">Infinitivo</h3>
     <p>Terminan en <em>-à</em>, <em>-e</em> o <em>-ī</em>, precedidos de <em>a</em>.</p>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
-      <span>LABORARE</span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>a laborà</em></span>
+      <span>LABORARE</span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>a lavorà</em></span>
       <span>VIDERE</span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>a vide</em></span>
       <span>VENIRE</span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>a venī</em></span>
     </div></div>
@@ -1262,14 +1403,14 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <div id="presente">
       <h4 class="subsub-heading">Presente</h4>
       <div class="tbl-wrap"><table>
-        <thead><tr><th></th><th></th><th>a laborà</th><th>a muave</th><th>a duce</th><th>a venī</th></tr></thead>
+        <thead><tr><th></th><th></th><th>a lavorà</th><th>a muave</th><th>a duce</th><th>a venī</th></tr></thead>
         <tbody>
-          <tr><td>yo</td><td><em>io</em></td><td><em>laboro</em></td><td><em>muavio</em></td><td><em>duco</em></td><td><em>venio</em></td></tr>
-          <tr><td>tú</td><td><em>ty</em></td><td><em>laboras</em></td><td><em>muavis</em></td><td><em>ducis</em></td><td><em>venis</em></td></tr>
-          <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>laborat</em></td><td><em>muavit</em></td><td><em>ducit</em></td><td><em>venit</em></td></tr>
-          <tr><td>nosotros</td><td><em>noi</em></td><td><em>laboram</em></td><td><em>movim</em></td><td><em>ducim</em></td><td><em>venim</em></td></tr>
-          <tr><td>vosotros</td><td><em>voi</em></td><td><em>laborati</em></td><td><em>moviti</em></td><td><em>duciti</em></td><td><em>veniti</em></td></tr>
-          <tr><td>ellos</td><td><em>ilī</em></td><td><em>laborut</em></td><td><em>muaviat</em></td><td><em>ducut</em></td><td><em>veniut</em></td></tr>
+          <tr><td>yo</td><td><em>io</em></td><td><em>lavoro</em></td><td><em>muavio</em></td><td><em>duco</em></td><td><em>venio</em></td></tr>
+          <tr><td>tú</td><td><em>ty</em></td><td><em>lavoras</em></td><td><em>muavis</em></td><td><em>ducis</em></td><td><em>venis</em></td></tr>
+          <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>lavorat</em></td><td><em>muavit</em></td><td><em>ducit</em></td><td><em>venit</em></td></tr>
+          <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavoram</em></td><td><em>movim</em></td><td><em>ducim</em></td><td><em>venim</em></td></tr>
+          <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavorati</em></td><td><em>moviti</em></td><td><em>duciti</em></td><td><em>veniti</em></td></tr>
+          <tr><td>ellos</td><td><em>ilī</em></td><td><em>lavorut</em></td><td><em>muaviat</em></td><td><em>ducut</em></td><td><em>veniut</em></td></tr>
         </tbody>
       </table></div>
       <p class="label">Alternancia consonántica</p>
@@ -1340,28 +1481,126 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
           <tr><td>ellos</td><td><em>ilī</em></td><td class="aux-cell"><em>vaut</em></td><td class="ex-cell"><em>ilī vaut vide</em><span class="m2">'ellos verán'</span></td></tr>
         </tbody>
       </table></div>
+  <div id="imperfecto">
+    <h4 class="subsub-heading">Imperfecto</h4>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a lavorà</th><th>a crede</th><th>a venī</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>lavorava</em></td><td><em>credea</em></td><td><em>veniea</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>lavoravas</em></td><td><em>credeas</em></td><td><em>venieas</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>lavoravat</em></td><td><em>credeat</em></td><td><em>venieat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavoràvam</em></td><td><em>credéam</em></td><td><em>veniéam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavoràvati</em></td><td><em>credéati</em></td><td><em>veniéati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>lavoravut</em></td><td><em>credeut</em></td><td><em>venieut</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div id="condicional">
+    <h4 class="subsub-heading">Condicional</h4>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a lavorà</th><th>a crede</th><th>a venī</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>lavorara</em></td><td><em>credra</em></td><td><em>veniara</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>lavoraras</em></td><td><em>credras</em></td><td><em>veniaras</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>lavorarat</em></td><td><em>credrat</em></td><td><em>veniarat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavoràram</em></td><td><em>crédram</em></td><td><em>veniàram</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavoràrati</em></td><td><em>crédrati</em></td><td><em>veniàrati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>lavorarut</em></td><td><em>credrut</em></td><td><em>veniarut</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
     </div>
   </div>
 
   <div id="gerundio">
     <h3 class="sub-heading">Gerundio</h3>
-    <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
-      <span style="font-family:var(--serif);font-style:italic"><em>laborà</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>laború</em></span>
-      <span style="font-family:var(--serif);font-style:italic"><em>crede</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>credià</em></span>
-    </div></div>
+    <div id="gerundio-pres">
+      <h4 class="subsub-heading">Presente</h4>
+      <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
+        <span style="font-family:var(--serif);font-style:italic"><em>lavorà</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'trabajar'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>lavorú</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'trabajando'</span></span>
+        <span style="font-family:var(--serif);font-style:italic"><em>crede</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'creer'</span></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>credià</em><br><span style="font-family:var(--sans);font-size:.7rem;color:var(--muted);font-style:normal">'creyendo'</span></span>
+      </div></div>
+    </div>
+    <div id="gerundio-gen">
+      <h4 class="subsub-heading">Genitivo</h4>
+      <p>El genitivo del gerundio (terminaciones <em>-udī, -iadī, -iiadī</em>) expresa una acción verbal como complemento de un sustantivo abstracto.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1rem 0">
+        <div style="text-align:center"><em>Opportuniostĭta fabludī.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'La oportunidad de hablar.'</span></div>
+        <div style="text-align:center"><em>Sperutsa viaciadī.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'La esperanza de ganar.'</span></div>
+        <div style="text-align:center"><em>Artiot liuviiadī.</em><br><span style="font-family:var(--sans);font-size:.75rem;color:var(--muted)">'El arte de amar.'</span></div>
+      </div>
+    </div>
   </div>
 
   <div id="participio">
     <h3 class="sub-heading">Participio</h3>
     <div style="display:flex;justify-content:center;margin:1rem 0"><div style="display:inline-grid;grid-template-columns:auto 2rem auto;gap:.55rem .5rem">
-      <span style="font-family:var(--serif);font-style:italic"><em>laborà</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>laboràt</em></span>
+      <span style="font-family:var(--serif);font-style:italic"><em>lavorà</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>lavoràt</em></span>
       <span style="font-family:var(--serif);font-style:italic"><em>esse</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>stat</em></span>
       <span style="font-family:var(--serif);font-style:italic"><em>ave</em></span><span style="color:var(--muted);text-align:center">→</span><span style="font-family:var(--serif);font-style:italic"><em>avyt</em></span>
     </div></div>
   </div>
 
+  <div id="subjuntivo">
+    <h3 class="sub-heading">Subjuntivo</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a lavorà</th><th>a crede</th><th>a venī</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>lavori</em></td><td><em>cregia</em></td><td><em>venia</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>lavoris</em></td><td><em>cregias</em></td><td><em>venias</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>lavorit</em></td><td><em>cregiat</em></td><td><em>veniat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavorim</em></td><td><em>cregiam</em></td><td><em>veniam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavoriti</em></td><td><em>cregiati</em></td><td><em>veniati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>lavoriat</em></td><td><em>cregiut</em></td><td><em>veniut</em></td></tr>
+      </tbody>
+    </table></div>
+    <p class="label">Alternancia consonántica (1ª sg.)</p>
+    <p>En la primera persona del singular actúan las mismas reglas que en el presente.</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a siatī</th><th>a crede</th><th>a resiste</th></tr></thead>
+      <tbody>
+        <tr style="color:var(--red)"><td>yo</td><td><em>io</em></td><td><em>siatsa</em></td><td><em>cregia</em></td><td><em>resiscia</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>siatis</em></td><td><em>cregias</em></td><td><em>resistis</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>siatit</em></td><td><em>cregiat</em></td><td><em>resistat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>setim</em></td><td><em>cregiam</em></td><td><em>resistam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>setiti</em></td><td><em>cregiati</em></td><td><em>resistati</em></td></tr>
+        <tr style="color:var(--red)"><td>ellos</td><td><em>ilī</em></td><td><em>siatsut</em></td><td><em>cregiut</em></td><td><em>resisciut</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div id="subj-imperf">
+    <h4 class="subsub-heading">Imperfecto</h4>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a lavorà</th><th>a crede</th><th>a venī</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>lavoressi</em></td><td><em>credissi</em></td><td><em>venissi</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>lavoressis</em></td><td><em>credissis</em></td><td><em>venissis</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila</em></td><td><em>lavoressit</em></td><td><em>credissit</em></td><td><em>venissit</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavoréssim</em></td><td><em>credíssim</em></td><td><em>veníssim</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavoréssiti</em></td><td><em>credíssiti</em></td><td><em>veníssiti</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>lavoressiat</em></td><td><em>credissiat</em></td><td><em>venissiat</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div id="imperativo">
+    <h3 class="sub-heading">Imperativo</h3>
+    <p>La forma de nosotros usa el subjuntivo presente.</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a lavorà</th><th>a crede</th><th>a venī</th><th>a esse</th><th>a ave</th></tr></thead>
+      <tbody>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>lavora</em></td><td><em>credí</em></td><td><em>vení</em></td><td><em>essí</em></td><td><em>aví</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>lavorem</em></td><td><em>crediam</em></td><td><em>veniam</em></td><td><em>sim</em></td><td><em>aiam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>lavorati</em></td><td><em>credite</em></td><td><em>venite</em></td><td><em>esite</em></td><td><em>avite</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
   <div id="irregulares">
     <h3 class="sub-heading">Verbos irregulares</h3>
+    <p class="label">Presente</p>
     <div class="tbl-wrap"><table>
       <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th><th>a vade</th></tr></thead>
       <tbody>
@@ -1371,6 +1610,42 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
         <tr><td>nosotros</td><td><em>noi</em></td><td><em>som</em></td><td><em>am</em></td><td><em>vam</em></td></tr>
         <tr><td>vosotros</td><td><em>voi</em></td><td><em>esti</em></td><td><em>ati</em></td><td><em>vati</em></td></tr>
         <tr><td>ellos</td><td><em>ilī</em></td><td><em>sut</em></td><td><em>aut</em></td><td><em>vaut</em></td></tr>
+      </tbody>
+    </table></div>
+    <p class="label">Imperfecto</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>era</em></td><td><em>avea</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>eras</em></td><td><em>aveas</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila/ilo</em></td><td><em>erat</em></td><td><em>aveat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>éram</em></td><td><em>avéam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>érati</em></td><td><em>avéati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>erut</em></td><td><em>avéut</em></td></tr>
+      </tbody>
+    </table></div>
+    <p class="label">Subjuntivo</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>sia</em></td><td><em>aia</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>sis</em></td><td><em>aias</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila/ilo</em></td><td><em>sit</em></td><td><em>aiat</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>sim</em></td><td><em>aiam</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>siti</em></td><td><em>aiati</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>siat</em></td><td><em>aiut</em></td></tr>
+      </tbody>
+    </table></div>
+    <p class="label">Subjuntivo imperfecto</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th></th><th></th><th>a esse</th><th>a ave</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><em>io</em></td><td><em>fossi</em></td><td><em>avissi</em></td></tr>
+        <tr><td>tú</td><td><em>ty</em></td><td><em>fossis</em></td><td><em>avissis</em></td></tr>
+        <tr><td>él/ella</td><td><em>ili/ila/ilo</em></td><td><em>fossit</em></td><td><em>avissit</em></td></tr>
+        <tr><td>nosotros</td><td><em>noi</em></td><td><em>fóssim</em></td><td><em>avíssim</em></td></tr>
+        <tr><td>vosotros</td><td><em>voi</em></td><td><em>fóssiti</em></td><td><em>avíssiti</em></td></tr>
+        <tr><td>ellos</td><td><em>ilī</em></td><td><em>fossiat</em></td><td><em>avissiat</em></td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1401,7 +1676,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <h3 class="sub-heading">Números cardinales</h3>
     <p>Del 2 al 4 el sustantivo va en genitivo singular. Del 5 en adelante va en genitivo plural.</p>
     <div class="exs">
-      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili a dua libria.</span></div><span class="ex-tr">'Tiene dos libros.'</span></div>
+      <div class="ex-row"><div class="ex-top"><span class="ex-word">Ili a dua libria.</span></div><span class="ex-tr">'Tienie dos libros.'</span></div>
       <div class="ex-row"><div class="ex-top"><span class="ex-word">Vi-a ciaci melar via tavulata.</span></div><span class="ex-tr">'Hay cinco manzanas en la mesa.'</span></div>
     </div>
   </div>
@@ -1548,7 +1823,7 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <p><em>sto</em> — cerca · <em>so</em> — lejos</p>
   </div>
 
-  <div class="foot">M.Z. — Liaga Recrecene</div>
+  <div class="foot">M.Z. — Liaga Recrecenie</div>
 
 </div>
 </div>
@@ -1627,9 +1902,9 @@ panelData.forEach(({ idx, label, tree, panel }) => {
   const item = document.createElement('div');
   item.className = 'nav-item';
 
-  // flatten tree for dropdown
-  const allSubs = tree.flatMap(({ el, children }) => [el, ...children])
-    .filter(el => el.querySelector('h2,h3,h4'));
+  // flatten tree for dropdown — only h3 sections, not h4 children
+  const allSubs = tree.flatMap(({ el }) => [el])
+    .filter(el => el.querySelector('h2,h3'));
 
   const chevron = allSubs.length > 1
     ? ` <svg width="7" height="7" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg>`
@@ -1790,7 +2065,7 @@ function playSound(k) { new Audio(`audio/${k}.mp3`).play().catch(()=>{}); }
 // Any <em> inside .exs, .quotes, .cj, .tf, .dh gets a play button.
 // Same word → same audio file (normalised: lowercase, strip diacritics for filename).
 // File naming: the word itself, lowercased, spaces→underscore.
-// e.g. "vita" → audio/vita.mp3, "a laborà" → audio/a_labora.mp3
+// e.g. "vita" → audio/vita.mp3, "a lavorà" → audio/a_lavora.mp3
 
 function wordToFilename(word) {
   return word
@@ -1843,7 +2118,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ── EDIT MODE ─────────────────────────────────────────────────────
-const REPO   = 'Anz4ku/Liaga-Recrecene';
+const REPO   = 'Anz4ku/Liaga-Recrecenie';
 const FILE   = 'index.html';
 const BRANCH = 'main';
 let editMode = false;
