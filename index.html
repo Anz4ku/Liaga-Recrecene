@@ -581,11 +581,13 @@ td em { font-style: italic; font-family: var(--serif); }
   margin-bottom: .35rem;
 }
 .quotes li .tr {
+  display: block;
   font-style: normal;
   font-family: var(--sans);
   font-size: .78rem;
   color: var(--muted);
-  margin-left: .3rem;
+  margin-top: .05rem;
+  margin-bottom: .3rem;
 }
 
 /* ── CONJ ROWS ──────────────────────────────────────────────────── */
@@ -1334,21 +1336,25 @@ ul.glist li::before { content: '—'; position: absolute; left: 0; color: var(--
     <h3 class="sub-heading">Cy</h3>
     <p>Pronombre clítico que cumple múltiples funciones gramaticales. Sustituye frecuentemente sintagmas preposicionales con <em>a</em>, <em>in</em> o <em>s</em>, y puede referirse a lugares, ideas abstractas o formar parte de expresiones fijas.</p>
     <div style="margin:.5rem 0 0 1.2rem">
-      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.15rem .4rem;align-items:baseline;margin-bottom:.9rem">
-        <em>Vau universitatĭta cisce giurn.</em><span style="color:var(--muted);white-space:nowrap">→</span><em>Cy vau cisce giurn.</em>
-        <span class="tr">'Voy a la universidad cada día.'</span><span></span><span class="tr">'Voy allí cada día.'</span>
+      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.5rem .4rem;align-items:start;margin-bottom:.9rem">
+        <div><em>Vau universitatĭta cisce giurn.</em><span class="tr">'Voy a la universidad cada día.'</span></div>
+        <span style="color:var(--muted);white-space:nowrap;padding-top:.1em">→</span>
+        <div><em>Cy vau cisce giurn.</em><span class="tr">'Voy allí cada día.'</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.15rem .4rem;align-items:baseline;margin-bottom:.9rem">
-        <em>Nu piaso in tò.</em><span style="color:var(--muted);white-space:nowrap">→</span><em>Nu cy piaso.</em>
-        <span class="tr">'No pienso en eso.'</span><span></span><span class="tr">'No pienso en ello.'</span>
+      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.5rem .4rem;align-items:start;margin-bottom:.9rem">
+        <div><em>Nu piaso in tò.</em><span class="tr">'No pienso en eso.'</span></div>
+        <span style="color:var(--muted);white-space:nowrap;padding-top:.1em">→</span>
+        <div><em>Nu cy piaso.</em><span class="tr">'No pienso en ello.'</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.15rem .4rem;align-items:baseline;margin-bottom:.9rem">
-        <em>Se at adaptàt a lavoru nuavou.</em><span style="color:var(--muted);white-space:nowrap">→</span><em>Se cy at adaptàt.</em>
-        <span class="tr">'Se adaptó al nuevo trabajo.'</span><span></span><span class="tr">'Se adaptó (al nuevo trabajo).'</span>
+      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.5rem .4rem;align-items:start;margin-bottom:.9rem">
+        <div><em>Se at adaptàt a lavoru nuavou.</em><span class="tr">'Se adaptó al nuevo trabajo.'</span></div>
+        <span style="color:var(--muted);white-space:nowrap;padding-top:.1em">→</span>
+        <div><em>Se cy at adaptàt.</em><span class="tr">'Se adaptó (al nuevo trabajo).'</span></div>
       </div>
-      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.15rem .4rem;align-items:baseline">
-        <em>Cufigo in ty.</em><span style="color:var(--muted);white-space:nowrap">→</span><em>Cy cufigo.</em>
-        <span class="tr">'Confío en ti.'</span><span></span><span class="tr">'(En ti) confío.'</span>
+      <div style="display:grid;grid-template-columns:max-content 1.5rem max-content;gap:.5rem .4rem;align-items:start">
+        <div><em>Cufigo in ty.</em><span class="tr">'Confío en ti.'</span></div>
+        <span style="color:var(--muted);white-space:nowrap;padding-top:.1em">→</span>
+        <div><em>Cy cufigo.</em><span class="tr">'(En ti) confío.'</span></div>
       </div>
     </div>
   </div>
