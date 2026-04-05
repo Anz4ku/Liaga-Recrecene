@@ -1,0 +1,12 @@
+# Dev / Claude Code
+.claude/
+.claude_bak/
+CLAUDE.md
+grabador.html
+
+# Unused assets
+flag drawing.png
+flag.svg
+thistle-cursor.png
+thistle-cursor.svg
+thistle-real.svg
